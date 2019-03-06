@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     switch(questionCounter){
         case 0:
-        getFromJson(requestURL, questionCounter);
+
         break;
         }
 
