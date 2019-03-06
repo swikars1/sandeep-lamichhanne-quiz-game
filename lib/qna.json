@@ -1,0 +1,52 @@
+{
+    "questions": [
+      {
+        "question": "What is the name of Draco Malfoy's son?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 1
+      },
+      {
+        "question": "What creature does Dumbledore have as a pet?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 2
+      },
+      {
+        "question": "What is Voldemort's final horcrux?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 3
+      },
+      {
+        "question": "Who takes over as headmaster of Hogwarts after Dumbledore's death?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 1
+      },
+      {
+        "question": "Who killed Deatheater Antonin Dolohov during the Battle of Hogwarts?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 2
+      },
+      {
+        "question": "What creature does Dumbledore have as a pet?",
+        "option1": "Scorpius",
+        "option2": "Lucius",
+        "option3": "Diego",
+        "option4": "Severus",
+        "answer": 4
+      }
+    ]
+  }
