@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./lib/jsonQ.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/welcome.js"></script>
     <title>Quiz</title>
   </head>
   <body>
+
     <div id="root">
       <div id="quiz-canvas">
-        <div id="scoreboard"></div>
+        <div id="scoreboard">
+          
+        </div>
         <div id="answer-box">
           <h2 id="question"></h2>
           <ul class="options">
@@ -23,7 +28,14 @@
             <li id="opt4"></li>
           </ul>
         </div>
-        <div class="buttonNext">Next Ball</div>
+        <div class="buttonNext nextPos">Next Ball</div>
+      </div>
+    </div>
+ 
+    <div class="welcome">
+      <button id="button" class="buttonNext playPos" > PLAY GAME</button><br>
+      <div class="loader-wrapper">
+        <div class="loader"></div>
       </div>
     </div>
   </body>
