@@ -9,9 +9,19 @@ html, body{
     flex-direction: column; 
     overflow: hidden;
 }
-p,li,h1,h2,h3{
+p,li,h1,h2,h3, button{
     color:white;
+    font-family: cursive;
 }
+/* p {
+    max-width: 500px;
+    font-family: "Avenir";
+    line-height: 25px;
+    text-align: justify;
+    opacity: 0;
+    color: #585858; 
+} */
+
 ul, ol{
     list-style-type: none;
 }
@@ -28,7 +38,7 @@ ul, ol{
 
 #scoreboard{
     height:100px;
-    background-color:rgba(99, 93, 93, 0.514);
+    background-color:rgba(189, 255, 237, 0.514)
 }
 .options{
     display:grid;
@@ -65,7 +75,7 @@ ul, ol{
 .buttonNext{
     position:relative;
     color:white;
-    background-color:rgba(69, 99, 75, 0.733);
+    background-color:rgba(63, 169, 84, 0.733);
     font-size:25px;
     display:block;
     text-align: center;
@@ -91,6 +101,8 @@ ul, ol{
 }
 .playPos{
     transform:translate(0, 0%);
+    width:200px;
+    height:50px;
 }
 .playPos:hover{
     transform:scale(1.07);
@@ -99,7 +111,7 @@ ul, ol{
     transform:scale(1);
     box-shadow: none;
 }
-.welcome {
+    .welcome {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -109,28 +121,54 @@ ul, ol{
     justify-content: center;
     flex-direction: column;
     letter-spacing: 2px;
-    color: #FFF; }
-  
+    color: #FFF; 
+}
 
-  
-  .loader-wrapper {
+.loader-wrapper {
     height: 2px;
     width: 150px;
     background: #ededed;
     border-radius: 100px;
-    opacity: 0; }
-  
-  .loader {
+    opacity: 0; 
+}
+
+.loader {
     height: 2px;
     width: 150px;
     background: #FFF;
     border-radius: 100px;
-    background: #585858; }
+    background: #585858; 
+}
   
-    p {
-        max-width: 500px;
-        font-family: "Avenir";
-        line-height: 25px;
-        text-align: justify;
-        opacity: 0;
-        color: #585858; }
+.correctOpt{
+    background-color:rgb(38, 136, 38) !important;
+    color: white !important;
+}
+.incorrectOpt{
+    background-color:rgb(185, 35, 35) !important;
+    color: white !important;
+} 
+#scoreboard{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-gap: 30px 10px;
+}
+#scoreboard p{
+    font-size:30px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius:10px;
+    padding:10px;
+    margin:auto;
+}
+#balls{
+     background-color: rgb(113, 113, 113);
+}
+#score{
+    background-color: rgb(51, 50, 50);
+}
+#congP {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 81px;
+}
