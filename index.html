@@ -4,15 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="main.css?version=2.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./lib/jsonQ.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/welcome.js"></script>
+    <script src="main.js"></script>
+    <script src="welcome.js"></script>
     <title>Quiz</title>
   </head>
   <body>
+    <script>
+              // initialize and setup facebook js sdk
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId: "315495869163777",
+            xfbml: true,
+            version: "v2.5"
+          });
+          FB.getLoginStatus(function(response) {
+            if (response.status === "connected") {
+              document.getElementById("status").innerHTML = "We are connected.";
+              document.getElementById("login").style.visibility = "hidden";
+            } else if (response.status === "not_authorized") {
+              document.getElementById("status").innerHTML = "We are not logged in.";
+            } else {
+              document.getElementById("status").innerHTML =
+                "You are not logged into Facebook.";
+            }
+          });
+        };
+        (function(d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, "script", "facebook-jssdk");
+
+        // login with facebook with extra permissions
+        $("#button").on("click", function login() {
+          FB.login(
+            function(response) {
+              if (response.status === "connected") {
+                document.getElementById("status").innerHTML = "We are connected.";
+                document.getElementById("login").style.visibility = "hidden";
+              } else if (response.status === "not_authorized") {
+                document.getElementById("status").innerHTML = "We are not logged in.";
+              } else {
+                document.getElementById("status").innerHTML =
+                  "You are not logged into Facebook.";
+              }
+            },
+            { scope: "email" }
+          );
+        });
+
+        $("#button").on("click", function getInfo() {
+          FB.api("/me", "GET", { fields: "first_name,last_name,name,id" }, function(
+            response
+          ) {
+            var userId = (document.getElementById("status").innerHTML = response.id)
+            console.log(response.first_name);
+            
+          });
+        });  
+    </script>
 
     <div id="root">
       <div id="quiz-canvas">
@@ -30,6 +90,8 @@
           </ul>
         </div>
         <div class="buttonNext nextPos">Next Ball</div>
+        <div id="status"></div>
+        <div id="login"></div>
       </div>
     </div>
  
@@ -38,6 +100,19 @@
       <div class="loader-wrapper">
         <div class="loader"></div>
       </div>
+    </div>
+    
+    <div hidden class="any">
+      <p id="para1" style="color:black;">
+        Welcome to the Quiz game<br>
+        By clicking the PLAY GAME button, you have already <br>Logged in with you Facebook Username
+        <br>Please click continue to play
+      </p>
+        <button id="button1" class="continue">Continue</button>
+    </div>
+
+    <div id="share">
+
     </div>
   </body>
 </html>
