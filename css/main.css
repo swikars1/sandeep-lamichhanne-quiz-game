@@ -27,7 +27,7 @@ ul, ol{
 }
 
 #root{
-    height:580px;
+    height:100%;
     width:100%;
     background-color: rgb(56, 55, 55);
 }
@@ -46,8 +46,7 @@ ul, ol{
     justify-items: center;
     grid-gap: 30px 10px;
 }
-.options li{
-    cursor:pointer;
+.options li, #lastPage p{
     background-color:rgb(216, 211, 211);
     color:rgb(15, 15, 15);
     font-size:30px;
@@ -57,9 +56,11 @@ ul, ol{
     width:150px;
     text-align: center;
 }
-.options li:hover{
+.options li:hover, #playAgain:hover{
     background-color:rgb(0, 0, 0);
-    color:rgb(255, 255, 255)
+    color:rgb(255, 255, 255);
+    cursor:pointer;
+
 
 }
 
@@ -167,7 +168,18 @@ ul, ol{
 #score{
     background-color: rgb(51, 50, 50);
 }
-#congP {
+#lastPage{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    grid-gap: 30px 10px;
+}
+#lastPage p{
+    align-self: center;
+    margin:120px;;
+    width:280px;
+}
+#congP{
     text-align: center;
     font-size: 40px;
     margin-top: 81px;

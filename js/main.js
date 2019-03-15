@@ -72,7 +72,15 @@ $(document).ready(function() {
   function quizComplete(){
     $('#answer-box').fadeOut(800);
     $('.nextPos').fadeOut(800, function(){
-      $('#quiz-canvas').append(`<p id='congP'> Your score is: ${score}`);
+      $('#congP').text(`Your score is: ${score}`);
+      $('#playAgain').text(`Try Again`);
+      $('#playAgain').click(function(){
+        location.reload();
+        console.log("restart");
+        
+      });
+      console.log(score);
+      
       $('#balls').hide();
       $('#score').hide();
     });

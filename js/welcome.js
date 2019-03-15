@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-	const button = document.querySelector('#button');
-	document.addEventListener('click', () => {
+	const button = $('#button');
+	button.on('click', () => {
+		$('#button').css("pointer-events","none").fadeOut('slow');
 		//Wrapper animation
 		anime.timeline({
 			targets: ".welcome",
