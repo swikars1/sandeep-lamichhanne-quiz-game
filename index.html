@@ -9,7 +9,7 @@
     <script src="./lib/jsonQ.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script src="main.js"></script>
-    <script src="welcome.js"></script>
+    <script src="first.js"></script>
     <title>Quiz</title>
   </head>
   <body>
@@ -76,18 +76,25 @@
 
     <div id="root">
       <div id="quiz-canvas">
-
+        <div id="scoreboard">
+          <p id='score'>Score: 0</p>
+          <p id='balls'>Balls Remaining: 6</p>
         </div>
-<<<<<<< HEAD
+        <div id="answer-box">
+          <h2 id="question"></h2>
+          <ul class="options">
+            <li id="opt1"></li>
+            <li id="opt2"></li>
+            <li id="opt3"></li>
+            <li id="opt4"></li>
+          </ul>
+        </div>
         <div class="buttonNext nextPos">Next Ball</div>
         <div id="status"></div>
         <div id="login"></div>
       </div>
     </div>
  
-=======
-        <div cla
->>>>>>> c284c839c906aac4e5e8acdcaba689710f5ce61f
     <div class="welcome">
       <button id="button" class="buttonNext playPos" > PLAY GAME</button><br>
       <div class="loader-wrapper">
@@ -101,7 +108,20 @@
         By clicking the PLAY GAME button, you have already <br>Logged in with you Facebook Username
         <br>Please click continue to play
       </p>
-        <button id="button1" class="continue">Continue</button>
+      <a id="cric">
+        <div class="icon-wrapper">
+          <svg id="cricket-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <title>Cricket</title>
+                <path id="bat" class="cls-1" d="M86.68,22.9l-9.59-9.58a6.52,6.52,0,0,0-4.62-2,7.35,7.35,0,0,0-5,1.81L31.17,49.5a6.57,6.57,0,0,0,0,9.42l1,1L15.47,76.59l-5.29,5.29a1.6,1.6,0,0,0,0,2.31l5.29,5.29a1.6,1.6,0,0,0,2.31,0l5.29-5.29L39.76,67.51l1,1a6.52,6.52,0,0,0,4.62,2,6,6,0,0,0,4.63-2L78.09,40.74,82.88,36l3.8-3.8a6.39,6.39,0,0,0,0-9.25ZM16.63,86l-3-3,4-4,3,3Zm5.28-5.28-3-3L34.47,62.22l3,3ZM34.3,57.42,53,46.82,42.41,65.53Zm13.55,8.77a3.27,3.27,0,0,1-2.31,1,3.16,3.16,0,0,1-1.65-.5l10.9-19.49a1.47,1.47,0,0,0,.17-.83,1.54,1.54,0,0,0-.5-1.16,1.76,1.76,0,0,0-2-.33L33,55.78a2.8,2.8,0,0,1-.49-1.65,3.27,3.27,0,0,1,1-2.32l26.76-26.6L74.62,39.59ZM75.6,38.44,61.3,24.13,62.46,23h0l2.48-2.48h0l1.16-1.16,14.31,14.3Zm8.6-8.76-2.65,2.8L67.18,18.11l2.64-2.64a3.29,3.29,0,0,1,2.32-1,5.54,5.54,0,0,1,2.48,1L84.2,25A3.2,3.2,0,0,1,84.2,29.68Z" />
+              <g id="ball">
+                <path class="cls-2" d="M85,72.69a5,5,0,0,0-6.42,0,4.6,4.6,0,0,0-.63.62,5,5,0,0,0,.62,7,4.91,4.91,0,0,0,3,1.16A5,5,0,0,0,85,72.69Z" />
+                <path class="cls-3" d="M78.46,72.64c6,2.14-.59,8,3.12,8.89" />
+              </g>
+          </svg>
+        </div>
+      </a>
+      
+        
     </div>
 
     <div id="share">

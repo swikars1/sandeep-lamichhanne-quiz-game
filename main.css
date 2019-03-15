@@ -181,9 +181,7 @@ color: #FFF;
     justify-content: center;
     flex-direction: column;
     letter-spacing: 2px;
-    
-    background-image: url("first.jpg");
-    background: cover;
+    background-color: #4A4A4A;
 
 }
 
@@ -203,3 +201,48 @@ color: #FFF;
     box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
 
 }
+
+.icon-wrapper {
+    width: 200px;
+    height: 200px;
+    background: grey;
+    padding: 2.5em;
+    margin: 2em auto;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .cls-1 {
+    fill: #fff;
+  }
+  
+  .cls-2,
+  .cls-3 {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 22.93;
+  }
+  
+  .cls-2 {
+    stroke-width: 2px;
+  }
+  
+  .icon-wrapper #bat {
+    transform-origin: bottom left;
+    transform: rotate(0) translate3d(0,0,0) scale(.9) rotateX(0deg);
+    transition: all .5s cubic-bezier(0.56, -1, 0.55, 1.5);
+  }
+  .icon-wrapper:hover #bat {
+    transform: rotate(30deg) scale(.75) rotateX(-10deg);
+  }
+  .icon-wrapper #ball {
+    transform: translate(0px, 0px);
+    transition: 500ms all ease-out .35s;
+  }
+  .icon-wrapper:hover #ball {
+    transform: translate(33px,50px);
+  }
