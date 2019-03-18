@@ -16,27 +16,14 @@
     <!-- Add additional services that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-database.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyCkasK766oZWbGJfGp8JYoXNIMoP03Pyho",
-          authDomain: "fb-quiz-app.firebaseapp.com",
-          databaseURL: "https://fb-quiz-app.firebaseio.com",
-          projectId: "fb-quiz-app",
-          storageBucket: "fb-quiz-app.appspot.com",
-          messagingSenderId: "1076655506884"
-        };
-        firebase.initializeApp(config);
-      </script>
     <title>Quiz</title>
   </head>
   <body>
-
     <div id="root">
       <div id="quiz-canvas">
         <div id="scoreboard">
-          <p id='score'>Score: 0</p>
-          <p id='balls'>Balls Remaining: 6</p>
+          <p id="score">Score: 0</p>
+          <p id="balls">Balls Remaining: 6</p>
         </div>
         <div id="answer-box">
           <h2 id="question"></h2>
@@ -49,14 +36,14 @@
         </div>
         <div class="buttonNext nextPos">Next Ball</div>
         <div id="lastPage">
-          <p id='playAgain'></p>
-          <p id='congP'></p>
+          <p id="playAgain"></p>
+          <p id="congP"></p>
         </div>
       </div>
     </div>
- 
+
     <div class="welcome">
-      <button id="button" class="buttonNext playPos" > PLAY GAME</button><br>
+      <button id="button" class="buttonNext playPos">PLAY GAME</button><br />
       <div class="loader-wrapper">
         <div class="loader"></div>
       </div>

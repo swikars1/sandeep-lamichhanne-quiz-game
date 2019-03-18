@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.https": {
+    "enable": true, //set it true to enable the feature.
+    "cert": "/home/olenepal/fb_app/rootCA.pem", //full path of the certificate
+    "key": "/home/olenepal/fb_app/rootCA.key", //full path of the private key
+    "passphrase": "swikar"
+  }
+}

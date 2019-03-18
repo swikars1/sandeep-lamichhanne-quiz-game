@@ -1,4 +1,36 @@
 $(document).ready(function() {
+    // Initialize Firebase
+  var firebaseConfig = {
+    apiKey: "AIzaSyCkasK766oZWbGJfGp8JYoXNIMoP03Pyho",
+    authDomain: "fb-quiz-app.firebaseapp.com",
+    databaseURL: "https://fb-quiz-app.firebaseio.com",
+    projectId: "fb-quiz-app",
+    storageBucket: "fb-quiz-app.appspot.com",
+    messagingSenderId: "1076655506884"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  function writeUserData(userId, first_name, last_name) {
+    firebase
+      .database()
+      .ref("winners/" + userId)
+      .set(
+        {
+          first_name: first_name,
+          last_name: last_name
+        },
+        function(error) {
+          if (error) {
+            // The write failed...
+            console.error("write failed");
+          } else {
+            // Data saved successfully!
+            console.log("write done");
+          }
+        }
+      );
+  }
+
   const requestURL = "./lib/qna.json"; //questions JSON
   var questionCounter = 0;
   var score = 0;
@@ -29,9 +61,11 @@ $(document).ready(function() {
   }
 
   function setQuestionOptions(questionData, questionPos) {
-    $(".options > li").removeClass("correctOpt");
-    $(".options > li").removeClass("incorrectOpt");
-    $(".options > li").css("pointer-events", "unset");
+    $(".options > li")
+      .removeClass("correctOpt incorrectOpt")
+      .css("pointer-events", "unset");
+    // $(".options > li").removeClass("incorrectOpt");
+    // $(".options > li").css("pointer-events", "unset");
     setBalls(balls);
 
     $("#question").text(questionData.questions[questionPos].question);
@@ -73,10 +107,15 @@ $(document).ready(function() {
     $('#answer-box').fadeOut(800);
     $('.nextPos').fadeOut(800, function(){
       $('#congP').text(`Your score is: ${score}`);
+
+      if (score==6) {
+        writeUserData("fireid2", "swiakr", "SHARMNA"); //writing to firebase
+      }
+
       $('#playAgain').text(`Try Again`);
       $('#playAgain').click(function(){
         location.reload();
-        console.log("restart");
+        console.log("restarted");
         
       });
       console.log(score);
@@ -125,6 +164,7 @@ window.fbAsyncInit = function() {
   js.src = "//connect.facebook.net/en_US/sdk.js";
   fjs.parentNode.insertBefore(js, fjs);
 })(document, "script", "facebook-jssdk");
+
 
 // login with facebook with extra permissions
 $("#button").on("click", function login() {
