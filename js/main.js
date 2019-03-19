@@ -64,8 +64,7 @@ $(document).ready(function() {
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
       .css("pointer-events", "unset");
-    // $(".options > li").removeClass("incorrectOpt");
-    // $(".options > li").css("pointer-events", "unset");
+
     setBalls(balls);
 
     $("#question").text(questionData.questions[questionPos].question);
@@ -86,14 +85,13 @@ $(document).ready(function() {
     answerId = "opt" + answer;
     $(".nextPos").show();
 
+    $(".options > li").css("pointer-events", "none");
     if (checkId == answerId) {
       score++;
       $("#" + checkId).addClass("correctOpt");
-      $(".options > li").css("pointer-events", "none");
       setScore(score);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
-      $(".options > li").css("pointer-events", "none");
     }
   }
 
@@ -180,7 +178,7 @@ $("#button").on("click", function login() {
           "You are not logged into Facebook.";
       }
     },
-    { scope: "email" }
+    { scope: "email, user_friends" }
   );
 });
 
@@ -192,6 +190,24 @@ $("#button").on("click", function getInfo() {
   });
 });
 
+$("#button2").on("click", function getFriends() {
+  FB.api("/me/invitable_friends", "GET", {}, function(response) {
+    console.log(response);
+    
+  });
+});
+// FB.api('/me/invitable_friends', function(response) {
+//   var result_holder = document.getElementById('result_friends');
+//   var friend_data = response.data.sort(sortMethod);
+
+//   var results = '';
+//   for (var i = 0; i < friend_data.length; i++) {
+//       results += '<div><img src="https://graph.facebook.com/' + friend_data[i].id + '/picture">' + friend_data[i].name + '</div>';
+//   }
+
+//   // and display them at our holder element
+//   result_holder.innerHTML = '<h2>Result list of your friends:</h2>' + results;
+// });
 $("#button").click(function() {
   $(".hidden").hide();
 });
