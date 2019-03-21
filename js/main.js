@@ -12,6 +12,27 @@ $(document).ready(function() {
   };
   firebase.initializeApp(firebaseConfig);
 
+  $('#playEnter').on('click', function(event){
+    event.preventDefault();
+    $('#playscreen').remove();
+    counterReset();
+
+  });
+
+  var counter = 16;
+  function counterReset(){
+    counter=16;
+    clearInterval();
+  }
+  function counterIn(){
+    setInterval(() => {
+      counter--;
+      if(counter>=0) $('#time').text(counter);
+       else $('#time').text('0');
+    },1000);
+  }
+
+
   function writeUserData(userId, first_name, last_name) {
     firebase
       .database()
@@ -42,8 +63,10 @@ $(document).ready(function() {
   startQuestions();
 
   function startQuestions() {
+    counterIn();
     getFromJson(requestURL, questionCounter);
     $(".nextPos").click(() => {
+      counterReset();
       if (questionCounter < 5) {
         questionCounter++;
         getFromJson(requestURL, questionCounter);
@@ -59,6 +82,7 @@ $(document).ready(function() {
     $(".nextPos").hide();
     $.getJSON(requestURL, function(questionData) {
       setQuestionOptions(questionData, questionPos);
+      
     });
   }
 
@@ -68,17 +92,19 @@ $(document).ready(function() {
       .css("pointer-events", "unset");
 
     setBalls(balls);
-
+    
     $("#question").text(questionData.questions[questionPos].question);
     $("#opt1").text(questionData.questions[questionPos].option1);
     $("#opt2").text(questionData.questions[questionPos].option2);
     $("#opt3").text(questionData.questions[questionPos].option3);
     $("#opt4").text(questionData.questions[questionPos].option4);
     answer = questionData.questions[questionPos].answer;
+
     $(".options > li")
       .off("click")
       .on("click", function() {
         checkAnswer(answer, $(this)[0].id);
+        clickflag=1;
       });
   }
 

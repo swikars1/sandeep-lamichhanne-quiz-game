@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./lib/jsonQ.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>     
     <script src="/js/welcome.js"></script>
     <!-- Firebase App is always required and must be first -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
@@ -20,12 +20,23 @@
   </head>
   <body>
     <div id="root">
-      <div id="quiz-canvas">
+      <div id="quiz-canvas"> 
+        <div id="playscreen">
+          <div id="playEnter" class="playPos buttonNext buttonPlay">
+            <div id="batball">
+              <img id='bat' src='images/bat.png'>
+              <img id='ball' src='images/ball.png'>
+            </div>
+          </div>
+        </div>
         <div id="scoreboard">
           <p id="score">Score: 0</p>
           <p id="balls">Balls Remaining: 6</p>
         </div>
-        <div id="answer-box">
+        <div id="answer-box"> 
+          <div id="time">
+            
+          </div>
           <h2 id="question"></h2>
           <ul class="options">
             <li id="opt1"></li>
@@ -42,11 +53,5 @@
       </div>
     </div>
 
-    <div class="welcome">
-      <button id="button" class="buttonNext playPos">PLAY GAME</button><br />
-      <div class="loader-wrapper">
-        <div class="loader"></div>
-      </div>
-    </div>
   </body>
 </html>

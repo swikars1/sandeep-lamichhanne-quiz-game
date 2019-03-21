@@ -29,14 +29,18 @@ ul, ol{
 #root{
     height:100vh;
     width:100%;
-    background-image: url('../use5994.png');
+    /* background-image: url('../images/bg2.jpg');
     background-repeat:no-repeat;
     background-size:cover;
-    background-position:center;
+    background-position:center; */
 }
 #quiz-canvas{
     padding-top: 50px;
     height: calc(100% - 50px);
+    background-image:    url('../images/playbg.jpg');
+    background-size: 100% 100%;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;     
 }
 
 #scoreboard{
@@ -48,10 +52,11 @@ ul, ol{
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     grid-gap: 30px 10px;
-    margin-top:30px
+    margin-top:30px;
+    margin-left:-35px;
 }
 .options li, #lastPage p {
-    background-color: #c3d3c0;
+    background-color: #edefec;
     color: rgb(15, 15, 15);
     font-size: 17px;
     justify-self: center;
@@ -59,7 +64,8 @@ ul, ol{
     border: 2px solid #356698;
     border-radius: 4px;
     border-radius: 10px;
-    width: 150px;
+    min-width: 300px;
+    width:fit-content;
     padding: 3px 0px;
     text-align: center;
 }
@@ -75,20 +81,19 @@ ul, ol{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #question {
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     background: linear-gradient(to right, #354f98 20%, 58%, #354f98 90%);
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
     margin: 0;
-    padding: 25px 1px;
+    padding: 9px 1px;
 }
 .buttonNext{
     position:relative;
     color:white;
-    background-color:rgba(63, 169, 84, 0.733);
     font-size:25px;
-    display:block;
+    vertical-align: middle;
     text-align: center;
     cursor:pointer;
     user-select: none;
@@ -97,6 +102,13 @@ ul, ol{
     border-radius:11px;
     transition: transform, box-shadow 100ms linear;
     box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
+}
+.buttonPlay{
+    background-image:    url('../images/play.png');
+    background-size: 100% 100%;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
+
 }
 .nextPos{
     transform:translate(-50%, -50%);
@@ -110,47 +122,47 @@ ul, ol{
     transform:translate(-50%, -50%)scale(1);
     box-shadow: none;
 }
-.playPos{
-    transform:translate(0, 0%);
-    width:200px;
-    height:50px;
+.playPos {
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index:10;
 }
 .playPos:hover{
-    transform:scale(1.07);
+    filter:brightness(110%)saturate(110%);
 }
 .playPos:active{
-    transform:scale(1);
+    transform:translate(-50%, -50%)scale(1);
     box-shadow: none;
 }
-    .welcome {
-    height: 100vh;
-    width: 100vw;
+#playscreen{
     position: absolute;
-    background: #4A4A4A;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    letter-spacing: 2px;
-    color: #FFF; 
+    height:100%;
+    width:100%; 
+    top:0;
+    left:0;
+    z-index: 5;  
+    background-image:    url('../images/bg2.jpg');
+    background-size: 100% 100%;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;              /* optional, center the image */
 }
-
-.loader-wrapper {
-    height: 2px;
-    width: 150px;
-    background: #ededed;
-    border-radius: 100px;
-    opacity: 0; 
+img#bat {
+    position: absolute;
+    right: 154px;
+    top: -19px;
+    width: 136px;
+    /* animation: slideleft 2s 3s cubic-bezier(.51,.78,.96,.39) forwards; */
 }
-
-.loader {
-    height: 2px;
-    width: 150px;
-    background: #FFF;
-    border-radius: 100px;
-    background: #585858; 
+img#ball {
+    position: absolute;
+    top: 152px;
+    left: 3px;
+    /* animation: slideleft 1s cubic-bezier(.17,.67,.78,.3) forwards; */
 }
-  
 .correctOpt{
     background-color:rgb(38, 136, 38) !important;
     color: white !important;
@@ -181,7 +193,8 @@ ul, ol{
     position: absolute;
     border-radius: 40px;
     height: max-content;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
+    margin-top:30px;
     border: 2px solid #4f5194;
     width: 700px;
 }
@@ -216,7 +229,7 @@ ul, ol{
 }
 #lastPage p{
     align-self: center;
-    margin:120px;;
+    margin:120px;
     width:280px;
 }
 #congP{
