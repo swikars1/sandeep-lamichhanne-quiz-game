@@ -11,7 +11,7 @@ html, body{
 }
 p,li,h1,h2,h3, button{
     color:white;
-    font-family: cursive;
+    font-family: ubuntu;
 }
 /* p {
     max-width: 500px;
@@ -29,7 +29,7 @@ ul, ol{
 #root{
     height:100%;
     width:100%;
-    background-color: rgb(56, 55, 55);
+    background-color: #a6cf22;
 }
 #quiz-canvas{
     padding-top: 50px;
@@ -45,6 +45,7 @@ ul, ol{
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     grid-gap: 30px 10px;
+    margin-top:30px
 }
 .options li, #lastPage p{
     background-color:rgb(216, 211, 211);
@@ -60,8 +61,6 @@ ul, ol{
     background-color:rgb(0, 0, 0);
     color:rgb(255, 255, 255);
     cursor:pointer;
-
-
 }
 
 .questionClass{
@@ -70,8 +69,13 @@ ul, ol{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #question{
-    font-size:30px;
+    font-size:20px;
     text-align: center;
+    background-color: #3d43a5;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin:0;
+    padding:25px 1px;
 }
 .buttonNext{
     position:relative;
@@ -161,6 +165,34 @@ ul, ol{
     border-bottom-right-radius:10px;
     padding:10px;
     margin:auto;
+}
+#answer-box{
+    background-color: #def0e9;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border-radius:40px;
+    height: max-content;
+    width: calc(100% - 280px);
+    padding-bottom:20px;
+    border: 2px solid #4f5194;
+}
+#answer-box::after {
+    content: 'Round';
+    border: 2px solid #4f5194;
+
+    position: absolute;
+    height: 24px;
+    width: 106px;
+    background-color: #dfe2d4;
+    top: -29px;
+    padding: 3px 3px 0px 3px;
+    left: 8%;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    text-align: center;
 }
 #balls{
      background-color: rgb(113, 113, 113);

@@ -190,12 +190,7 @@ $("#button").on("click", function getInfo() {
   });
 });
 
-$("#button2").on("click", function getFriends() {
-  FB.api("/me/invitable_friends", "GET", {}, function(response) {
-    console.log(response);
-    
-  });
-});
+
 // FB.api('/me/invitable_friends', function(response) {
 //   var result_holder = document.getElementById('result_friends');
 //   var friend_data = response.data.sort(sortMethod);
@@ -208,6 +203,7 @@ $("#button2").on("click", function getFriends() {
 //   // and display them at our holder element
 //   result_holder.innerHTML = '<h2>Result list of your friends:</h2>' + results;
 // });
+
 $("#button").click(function() {
   $(".hidden").hide();
 });
