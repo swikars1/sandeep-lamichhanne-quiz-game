@@ -47,6 +47,10 @@ ul, ol{
     height:100px;
     background-color:rgba(189, 255, 237, 0.514)
 }
+#time{
+    position: absolute;
+
+}
 .options{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -150,6 +154,27 @@ ul, ol{
     background-repeat:   no-repeat;
     background-position: center center;              /* optional, center the image */
 }
+.sandipScreen{
+    position: absolute;
+    height:100%;
+    width:100%; 
+    top:0;
+    left:0;
+    z-index: 5;  
+    background-size: 100% 100%;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-size:   100% 100%;
+}
+.sandipbg1{
+    background-image: url('../images/Post-01.png');
+}
+.sandipbg2{
+    background-image: url('../images/Post-02.png'); 
+}
+.sandipbg3{
+    background-image: url('../images/Post-03.png');
+}
 img#bat {
     position: absolute;
     right: 154px;
@@ -218,7 +243,7 @@ img#ball {
     width: 700px;
 }
 #answer-box::after {
-    content: 'Round: 1';
+    content: attr(data-content);
     border: 1px solid #354f98;
     position: absolute;
     height: 24px;
@@ -256,9 +281,40 @@ img#ball {
     font-size: 40px;
     margin-top: 81px;
 }
-
-.mball {
-    left: 500px;
-    width: 60px;
-    position: absolute;
+#fifty{
+    position: relative;
+    margin-left:48%;
+    color:rgb(236, 234, 234);
+    background-color:rgb(0, 0, 0);
+    display: inline-block;
+    padding:2px;
+    border-radius:3px;
+    cursor: pointer;
 }
+#fifty:hover{
+    background-color:rgb(182, 182, 182);
+    color:black;
+}
+
+.bathit{
+    animation: bathit 1s linear forwards;
+}
+.ballhit{
+    animation: ballhit 1s 1s ease-out forwards;
+}
+@keyframes bathit{
+    65%{
+        transform:rotate(15deg);
+    }
+    75%{
+        transform:rotate(16deg);
+    }
+    100%{
+        transform:rotate(-23deg);
+    }
+}
+@keyframes ballhit{
+    100%{
+        transform: scale(.5)translate(1874%, -994%);
+}
+    }

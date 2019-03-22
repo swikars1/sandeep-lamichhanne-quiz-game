@@ -1,3 +1,7 @@
+
+  var CCOUNT = 15;
+    
+  var t, count=15;
 $(document).ready(function() {
   $('#congP').hide();
   $('#playAgain').hide();
@@ -13,6 +17,7 @@ $(document).ready(function() {
   firebase.initializeApp(firebaseConfig);
 
   $('#playEnter').on('click', function(event){
+<<<<<<< HEAD
     event.preventDefault();
     // for swinging bat and ball
     var bat = $('#bat');
@@ -31,20 +36,15 @@ $(document).ready(function() {
     
     counterReset();
 
+=======
+    $('#bat').addClass('bathit');
+    $('#ball').addClass('ballhit');
+    setTimeout(()=>{
+      event.preventDefault();
+      $('#playscreen').remove();
+    },2000);
+>>>>>>> 1e0f1d63842f7427c77d6e01982f8f08a19a2cc4
   });
-
-  var counter = 16;
-  function counterReset(){
-    counter=16;
-    clearInterval();
-  }
-  function counterIn(){
-    setInterval(() => {
-      counter--;
-      if(counter>=0) $('#time').text(counter);
-       else $('#time').text('0');
-    },1000);
-  }
 
 
   function writeUserData(userId, first_name, last_name) {
@@ -73,14 +73,43 @@ $(document).ready(function() {
   var score = 0;
   var balls = 6;
 
+
+function cddisplay() {
+    // displays time in span
+    document.getElementById('time').innerHTML = count;
+};
+
+function countdown() {
+    // starts countdown
+    // countdown = function(){};
+    cddisplay();
+    if (count == 0) {
+        // time is up
+    } else {
+        count--;
+        t = setTimeout(countdown(),  1000);
+    }
+};
+
+function cdpause() {
+    // pauses countdown
+    clearTimeout(t);
+};
+
+function cdreset() {
+    // resets countdown
+    cdpause();
+    count = CCOUNT;
+    cddisplay();
+};
+
+
   //start
   startQuestions();
 
   function startQuestions() {
-    counterIn();
     getFromJson(requestURL, questionCounter);
-    $(".nextPos").click(() => {
-      counterReset();
+    $(".sandipScreen").click(() => {
       if (questionCounter < 5) {
         questionCounter++;
         getFromJson(requestURL, questionCounter);
@@ -93,7 +122,7 @@ $(document).ready(function() {
   }
 
   function getFromJson(requestURL, questionPos) {
-    $(".nextPos").hide();
+    $(".sandipScreen").hide();
     $.getJSON(requestURL, function(questionData) {
       setQuestionOptions(questionData, questionPos);
       
@@ -101,39 +130,108 @@ $(document).ready(function() {
   }
 
   function setQuestionOptions(questionData, questionPos) {
+    $('#answer-box').attr('data-content',`Round: ${questionCounter+1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
-      .css("pointer-events", "unset");
+      .css({"pointer-events":"unset","opacity":"1"});
 
     setBalls(balls);
-    
+    $('#fifty').css({"pointer-events":"unset","opacity":"1"});
     $("#question").text(questionData.questions[questionPos].question);
     $("#opt1").text(questionData.questions[questionPos].option1);
     $("#opt2").text(questionData.questions[questionPos].option2);
     $("#opt3").text(questionData.questions[questionPos].option3);
     $("#opt4").text(questionData.questions[questionPos].option4);
     answer = questionData.questions[questionPos].answer;
-
     $(".options > li")
       .off("click")
       .on("click", function() {
+        cdpause();
         checkAnswer(answer, $(this)[0].id);
-        clickflag=1;
       });
+
+    $('#fifty').off("click")
+    .on("click", function() {
+      $(this).css({"pointer-events":"none","opacity":"0"});
+      firstran =  Math.floor(Math.random() * 2) + 1;
+      secondran =  Math.floor(Math.random() * 2) + 3;
+
+      if(firstran==answer && firstran==1) firstran = 2;
+      if(firstran==answer && firstran==2) firstran = 1;
+      if(secondran==answer && secondran==3) secondran = 4;
+      if(secondran==answer && secondran==4) secondran = 3;
+
+      console.log(firstran, secondran);
+       removeTwo(firstran, secondran);
+    });
+  }
+
+  function removeTwo(firstran, secondran){
+    $(`#opt${firstran},#opt${secondran}`)
+      .css('pointer-events','none')
+      .animate({'opacity':'0'},500, "linear");
   }
 
   function checkAnswer(answer, checkId) {
     
     answerId = "opt" + answer;
-    $(".nextPos").show();
+
+    $(".sandipScreen").show();
 
     $(".options > li").css("pointer-events", "none");
+    cdpause();
     if (checkId == answerId) {
       score++;
       $("#" + checkId).addClass("correctOpt");
+      switch(questionCounter){
+        case 0:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 1:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg1 sandipbg3')
+            .addClass('sandipbg2')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 2:
+        $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg1')
+            .addClass('sandipbg3')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 3:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 4:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg1 sandipbg3')
+            .addClass('sandipbg2')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 5:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear");
+          break;
+      }
       setScore(score);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
+      $(".sandipScreen")
+            .removeClass('sandipbg1 sandipbg2 sandipbg3')
     }
   }
 
@@ -145,7 +243,7 @@ $(document).ready(function() {
   }
   function quizComplete(){
     $('#answer-box').fadeOut(800);
-    $('.nextPos').fadeOut(800, function(){
+    $('.sandipScreen').fadeOut(800, function(){
       $('#congP').text(`Your score is: ${score}`);
 
       if (score==6) {
