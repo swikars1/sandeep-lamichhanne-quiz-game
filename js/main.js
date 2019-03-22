@@ -17,9 +17,8 @@ $(document).ready(function() {
   firebase.initializeApp(firebaseConfig);
 
   $('#playEnter').on('click', function(event){
-    $('#bat').addClass('bathit',()=>{
-      $('#ball').addClass('ballhit')
-    });
+    $('#bat').addClass('bathit');
+    $('#ball').addClass('ballhit');
     setTimeout(()=>{
       event.preventDefault();
       $('#playscreen').remove();

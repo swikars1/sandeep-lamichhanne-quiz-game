@@ -281,7 +281,7 @@ img#ball {
     animation: bathit 1s linear forwards;
 }
 .ballhit{
-    animation: ballhit 1s ease-in forwards;
+    animation: ballhit 1s 1s ease-out forwards;
 }
 @keyframes bathit{
     65%{
@@ -296,6 +296,6 @@ img#ball {
 }
 @keyframes ballhit{
     100%{
-        transform:scale(.5)translate(-80%, 80%);
-    }
+        transform: scale(.5)translate(1874%, -994%);
 }
+    }
