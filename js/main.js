@@ -17,33 +17,12 @@ $(document).ready(function() {
   firebase.initializeApp(firebaseConfig);
 
   $('#playEnter').on('click', function(event){
-<<<<<<< HEAD
-    event.preventDefault();
-    // for swinging bat and ball
-    var bat = $('#bat');
-    var ball = $('#ball');
-
-    bat.animate({right:'250px'}, () => {
-     bat.animate(
-      {right: "121px"},
-      {top: "-19px"},
-      {width: "136px"})
-      ball.animate({left: "0px"});
-      ball.animate({left: '+=700', top: '-=500'}, () => {
-        $('#playscreen').remove();
-      });     
-    });
-    
-    counterReset();
-
-=======
     $('#bat').addClass('bathit');
     $('#ball').addClass('ballhit');
     setTimeout(()=>{
       event.preventDefault();
       $('#playscreen').remove();
     },2000);
->>>>>>> 1e0f1d63842f7427c77d6e01982f8f08a19a2cc4
   });
 
 
@@ -161,7 +140,6 @@ function cdreset() {
       if(secondran==answer && secondran==3) secondran = 4;
       if(secondran==answer && secondran==4) secondran = 3;
 
-      console.log(firstran, secondran);
        removeTwo(firstran, secondran);
     });
   }
@@ -170,6 +148,7 @@ function cdreset() {
     $(`#opt${firstran},#opt${secondran}`)
       .css('pointer-events','none')
       .animate({'opacity':'0'},500, "linear");
+      $('#fifty').remove();
   }
 
   function checkAnswer(answer, checkId) {
@@ -179,8 +158,9 @@ function cdreset() {
     $(".sandipScreen").show();
 
     $(".options > li").css("pointer-events", "none");
-    cdpause();
+    // cdpause();
     if (checkId == answerId) {
+      // correct option
       score++;
       $("#" + checkId).addClass("correctOpt");
       switch(questionCounter){
@@ -229,6 +209,7 @@ function cdreset() {
       }
       setScore(score);
     } else {
+      // incorrect option
       $("#" + checkId).addClass("incorrectOpt");
       $(".sandipScreen")
             .removeClass('sandipbg1 sandipbg2 sandipbg3')
