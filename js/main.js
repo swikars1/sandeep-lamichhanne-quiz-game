@@ -17,7 +17,6 @@ $(document).ready(function() {
   firebase.initializeApp(firebaseConfig);
 
   $('#playEnter').on('click', function(event){
-<<<<<<< HEAD
     event.preventDefault();
     // for swinging bat and ball
     var bat = $('#bat');
@@ -36,14 +35,6 @@ $(document).ready(function() {
     
     counterReset();
 
-=======
-    $('#bat').addClass('bathit');
-    $('#ball').addClass('ballhit');
-    setTimeout(()=>{
-      event.preventDefault();
-      $('#playscreen').remove();
-    },2000);
->>>>>>> 1e0f1d63842f7427c77d6e01982f8f08a19a2cc4
   });
 
 
