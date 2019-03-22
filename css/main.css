@@ -47,6 +47,10 @@ ul, ol{
     height:100px;
     background-color:rgba(189, 255, 237, 0.514)
 }
+#time{
+    position: absolute;
+
+}
 .options{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -149,6 +153,27 @@ ul, ol{
     background-size: 100% 100%;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;              /* optional, center the image */
+}
+.sandipScreen{
+    position: absolute;
+    height:100%;
+    width:100%; 
+    top:0;
+    left:0;
+    z-index: 5;  
+    background-size: 100% 100%;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    background-size:   100% 100%;
+}
+.sandipbg1{
+    background-image: url('../images/Post-01.jpg');
+}
+.sandipbg2{
+    background-image: url('../images/Post-02.jpg'); 
+}
+.sandipbg3{
+    background-image: url('../images/Post-03.jpg');
 }
 img#bat {
     position: absolute;

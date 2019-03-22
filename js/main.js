@@ -1,3 +1,7 @@
+
+  var CCOUNT = 15;
+    
+  var t, count=15;
 $(document).ready(function() {
   $('#congP').hide();
   $('#playAgain').hide();
@@ -15,22 +19,8 @@ $(document).ready(function() {
   $('#playEnter').on('click', function(event){
     event.preventDefault();
     $('#playscreen').remove();
-    counterReset();
 
   });
-
-  var counter = 16;
-  function counterReset(){
-    counter=16;
-    clearInterval();
-  }
-  function counterIn(){
-    setInterval(() => {
-      counter--;
-      if(counter>=0) $('#time').text(counter);
-       else $('#time').text('0');
-    },1000);
-  }
 
 
   function writeUserData(userId, first_name, last_name) {
@@ -59,14 +49,43 @@ $(document).ready(function() {
   var score = 0;
   var balls = 6;
 
+
+function cddisplay() {
+    // displays time in span
+    document.getElementById('time').innerHTML = count;
+};
+
+function countdown() {
+    // starts countdown
+    // countdown = function(){};
+    cddisplay();
+    if (count == 0) {
+        // time is up
+    } else {
+        count--;
+        t = setTimeout(countdown(),  1000);
+    }
+};
+
+function cdpause() {
+    // pauses countdown
+    clearTimeout(t);
+};
+
+function cdreset() {
+    // resets countdown
+    cdpause();
+    count = CCOUNT;
+    cddisplay();
+};
+
+
   //start
   startQuestions();
 
   function startQuestions() {
-    counterIn();
     getFromJson(requestURL, questionCounter);
-    $(".nextPos").click(() => {
-      counterReset();
+    $(".sandipScreen").click(() => {
       if (questionCounter < 5) {
         questionCounter++;
         getFromJson(requestURL, questionCounter);
@@ -79,7 +98,7 @@ $(document).ready(function() {
   }
 
   function getFromJson(requestURL, questionPos) {
-    $(".nextPos").hide();
+    $(".sandipScreen").hide();
     $.getJSON(requestURL, function(questionData) {
       setQuestionOptions(questionData, questionPos);
       
@@ -99,24 +118,69 @@ $(document).ready(function() {
     $("#opt3").text(questionData.questions[questionPos].option3);
     $("#opt4").text(questionData.questions[questionPos].option4);
     answer = questionData.questions[questionPos].answer;
-
     $(".options > li")
       .off("click")
       .on("click", function() {
+        cdpause();
         checkAnswer(answer, $(this)[0].id);
-        clickflag=1;
       });
   }
 
   function checkAnswer(answer, checkId) {
     
     answerId = "opt" + answer;
-    $(".nextPos").show();
+
+    $(".sandipScreen").show();
 
     $(".options > li").css("pointer-events", "none");
+    cdpause();
     if (checkId == answerId) {
       score++;
       $("#" + checkId).addClass("correctOpt");
+      switch(questionCounter){
+        case 0:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear")
+        break;
+        case 1:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg1 sandipbg3')
+            .addClass('sandipbg2')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 2:
+        $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg1')
+            .addClass('sandipbg3')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 3:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 4:
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg1 sandipbg3')
+            .addClass('sandipbg2')
+            .animate({'opacity':'1'},1000,"linear");
+        break;
+        case 5:
+        $(".sandipScreen")
+          .css('opacity','0')
+          .removeClass('sandipbg1 sandipbg3')
+          .addClass('sandipbg2')
+          .animate({'opacity':'1'},1000,"linear");
+      break;
+      }
       setScore(score);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
@@ -131,7 +195,7 @@ $(document).ready(function() {
   }
   function quizComplete(){
     $('#answer-box').fadeOut(800);
-    $('.nextPos').fadeOut(800, function(){
+    $('.sandipScreen').fadeOut(800, function(){
       $('#congP').text(`Your score is: ${score}`);
 
       if (score==6) {
