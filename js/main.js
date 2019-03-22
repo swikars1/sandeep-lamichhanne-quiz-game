@@ -14,7 +14,21 @@ $(document).ready(function() {
 
   $('#playEnter').on('click', function(event){
     event.preventDefault();
-    $('#playscreen').remove();
+    // for swinging bat and ball
+    var bat = $('#bat');
+    var ball = $('#ball');
+
+    bat.animate({right:'250px'}, () => {
+     bat.animate(
+      {right: "121px"},
+      {top: "-19px"},
+      {width: "136px"})
+      ball.animate({left: "0px"});
+      ball.animate({left: '+=700', top: '-=500'}, () => {
+        $('#playscreen').remove();
+      });     
+    });
+    
     counterReset();
 
   });

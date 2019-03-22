@@ -154,9 +154,28 @@ img#bat {
     position: absolute;
     right: 154px;
     top: -19px;
-    width: 136px;
-    /* animation: slideleft 2s 3s cubic-bezier(.51,.78,.96,.39) forwards; */
+    width: 136px;            
 }
+#bat {
+    animation: swing ease 1s infinite alternate-reverse;
+    transform-origin: center 0px;
+    float:left;
+    }
+#bat:after{ 
+    position: absolute;  
+    width: 20px; height: 20px;  
+    border: 1px solid #999;
+    top: -10px; left: 50%;
+    z-index: 0;
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+} 
+@keyframes swing {
+    0% { transform: rotate(6deg); }
+    100% { transform: rotate(-10deg); }
+}
+
 img#ball {
     position: absolute;
     top: 152px;
@@ -229,11 +248,17 @@ img#ball {
 }
 #lastPage p{
     align-self: center;
-    margin:120px;
+    margin:120px;;
     width:280px;
 }
 #congP{
     text-align: center;
     font-size: 40px;
     margin-top: 81px;
+}
+
+.mball {
+    left: 500px;
+    width: 60px;
+    position: absolute;
 }
