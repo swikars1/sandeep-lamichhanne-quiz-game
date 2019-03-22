@@ -167,13 +167,13 @@ ul, ol{
     background-size:   100% 100%;
 }
 .sandipbg1{
-    background-image: url('../images/Post-01.jpg');
+    background-image: url('../images/Post-01.png');
 }
 .sandipbg2{
-    background-image: url('../images/Post-02.jpg'); 
+    background-image: url('../images/Post-02.png'); 
 }
 .sandipbg3{
-    background-image: url('../images/Post-03.jpg');
+    background-image: url('../images/Post-03.png');
 }
 img#bat {
     position: absolute;
@@ -224,7 +224,7 @@ img#ball {
     width: 700px;
 }
 #answer-box::after {
-    content: 'Round: 1';
+    content: attr(data-content);
     border: 1px solid #354f98;
     position: absolute;
     height: 24px;
@@ -261,4 +261,27 @@ img#ball {
     text-align: center;
     font-size: 40px;
     margin-top: 81px;
+}
+
+.bathit{
+    animation: bathit 1s linear forwards;
+}
+.ballhit{
+    animation: ballhit 1s ease-in forwards;
+}
+@keyframes bathit{
+    65%{
+        transform:rotate(15deg);
+    }
+    75%{
+        transform:rotate(16deg);
+    }
+    100%{
+        transform:rotate(-23deg);
+    }
+}
+@keyframes ballhit{
+    100%{
+        transform:scale(.5)translate(-80%, 80%);
+    }
 }

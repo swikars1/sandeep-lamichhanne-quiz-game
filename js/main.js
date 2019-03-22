@@ -17,9 +17,13 @@ $(document).ready(function() {
   firebase.initializeApp(firebaseConfig);
 
   $('#playEnter').on('click', function(event){
-    event.preventDefault();
-    $('#playscreen').remove();
-
+    $('#bat').addClass('bathit',()=>{
+      $('#ball').addClass('ballhit')
+    });
+    setTimeout(()=>{
+      event.preventDefault();
+      $('#playscreen').remove();
+    },2000);
   });
 
 
@@ -106,6 +110,7 @@ function cdreset() {
   }
 
   function setQuestionOptions(questionData, questionPos) {
+    $('#answer-box').attr('data-content',`Round: ${questionCounter+1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
       .css("pointer-events", "unset");
@@ -143,7 +148,7 @@ function cdreset() {
             .css('opacity','0')
             .removeClass('sandipbg2 sandipbg3')
             .addClass('sandipbg1')
-            .animate({'opacity':'1'},1000,"linear")
+            .animate({'opacity':'1'},1000,"linear");
         break;
         case 1:
           $(".sandipScreen")
@@ -174,16 +179,18 @@ function cdreset() {
             .animate({'opacity':'1'},1000,"linear");
         break;
         case 5:
-        $(".sandipScreen")
-          .css('opacity','0')
-          .removeClass('sandipbg1 sandipbg3')
-          .addClass('sandipbg2')
-          .animate({'opacity':'1'},1000,"linear");
-      break;
+          $(".sandipScreen")
+            .css('opacity','0')
+            .removeClass('sandipbg2 sandipbg3')
+            .addClass('sandipbg1')
+            .animate({'opacity':'1'},1000,"linear");
+          break;
       }
       setScore(score);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
+      $(".sandipScreen")
+            .removeClass('sandipbg1 sandipbg2 sandipbg3')
     }
   }
 
