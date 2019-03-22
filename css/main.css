@@ -262,6 +262,20 @@ img#ball {
     font-size: 40px;
     margin-top: 81px;
 }
+#fifty{
+    position: relative;
+    margin-left:48%;
+    color:rgb(236, 234, 234);
+    background-color:rgb(0, 0, 0);
+    display: inline-block;
+    padding:2px;
+    border-radius:3px;
+    cursor: pointer;
+}
+#fifty:hover{
+    background-color:rgb(182, 182, 182);
+    color:black;
+}
 
 .bathit{
     animation: bathit 1s linear forwards;

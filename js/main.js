@@ -113,10 +113,10 @@ function cdreset() {
     $('#answer-box').attr('data-content',`Round: ${questionCounter+1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
-      .css("pointer-events", "unset");
+      .css({"pointer-events":"unset","opacity":"1"});
 
     setBalls(balls);
-    
+    $('#fifty').css({"pointer-events":"unset","opacity":"1"});
     $("#question").text(questionData.questions[questionPos].question);
     $("#opt1").text(questionData.questions[questionPos].option1);
     $("#opt2").text(questionData.questions[questionPos].option2);
@@ -129,6 +129,27 @@ function cdreset() {
         cdpause();
         checkAnswer(answer, $(this)[0].id);
       });
+
+    $('#fifty').off("click")
+    .on("click", function() {
+      $(this).css({"pointer-events":"none","opacity":"0"});
+      firstran =  Math.floor(Math.random() * 2) + 1;
+      secondran =  Math.floor(Math.random() * 2) + 3;
+
+      if(firstran==answer && firstran==1) firstran = 2;
+      if(firstran==answer && firstran==2) firstran = 1;
+      if(secondran==answer && secondran==3) secondran = 4;
+      if(secondran==answer && secondran==4) secondran = 3;
+
+      console.log(firstran, secondran);
+       removeTwo(firstran, secondran);
+    });
+  }
+
+  function removeTwo(firstran, secondran){
+    $(`#opt${firstran},#opt${secondran}`)
+      .css('pointer-events','none')
+      .animate({'opacity':'0'},500, "linear");
   }
 
   function checkAnswer(answer, checkId) {
