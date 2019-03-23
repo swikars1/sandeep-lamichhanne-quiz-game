@@ -22,6 +22,17 @@ $(document).ready(function() {
     setTimeout(()=>{
       event.preventDefault();
       $('#playscreen').remove();
+      // var count = 2;
+      // var interval = setInterval(function(){
+      //   document.getElementById('playEnter').innerHTML=count;
+      //   count--;
+      //   if (count === 0){
+      //     clearInterval(interval);
+      //     document.getElementById('playEnter').innerHTML='Done';
+      //     // or...
+      //     alert("You're out of time!");
+      //   }
+      // }, 1000);
     },2000);
   });
 
@@ -58,19 +69,9 @@ function cddisplay() {
     document.getElementById('time').innerHTML = count;
 };
 
-    // var count = 16;
-    // var interval = setInterval(function(){
-    //   document.getElementById('playEnter').innerHTML=count;
-    //   count--;
-    //   if (count === 0){
-    //     clearInterval(interval);
-    //     document.getElementById('playEnter').innerHTML='Done';
-    //     // or...
-    //     alert("You're out of time!");
-    //   }
-    // }, 1000);
 
-/*function countdown() {
+
+/*function countdown() {a
     // starts countdown
     // countdown = function(){};
     cddisplay();
@@ -98,7 +99,6 @@ function cddisplay() {
 
   //start
   startQuestions();
-
   function startQuestions() {
     getFromJson(requestURL, questionCounter);    
     $(".sandipScreen").click(() => {

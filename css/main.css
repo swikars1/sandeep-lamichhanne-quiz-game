@@ -220,13 +220,14 @@ ul, ol{
     top:0;
     left:0;
     z-index: 5;  
-    background-size: 100% 100%;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
-    background-size:   100% 100%;
+    background-size:   80% 100%;
 }
 .sandipbg1{
     background-image: url('../images/Post-01.png');
+    background-color:white;
+
 }
 .sandipbg1:before{
     content: "Congratulation ";
@@ -252,6 +253,8 @@ ul, ol{
 }
 .sandipbg2{
     background-image: url('../images/Post-02.png'); 
+    background-color:white;
+
 }
 .sandipbg2:before{
     content: "Congratulation ";
@@ -276,6 +279,8 @@ ul, ol{
 }
 .sandipbg3{
     background-image: url('../images/Post-03.png');
+    background-color:white;
+
 }
 .sandipbg3:before{
     content: "Congratulation ";
