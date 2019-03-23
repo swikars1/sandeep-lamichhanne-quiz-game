@@ -272,7 +272,7 @@ img#ball {
     background-color: rgba(255,255,255,.25);
     box-sizing: border-box;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 40%;
     left: 50%;
     position: relative;
     border-radius: 40px;
@@ -345,15 +345,22 @@ img#ball {
 
 img#bat2 {
     transform: scaleX(-1);
-    margin-top: 156px;
-    margin-left: -37px;
+
     width: 179px;
+
 }
-#ball2{
+#ball2 {
     height: 41px;
+
     width: 44px;
-    margin-bottom: 3px;
+
 }
+img#helmet2 {
+
+    width: 126px;
+
+}
+
 @keyframes bathit{
     65%{
         transform:rotate(15deg);
@@ -371,12 +378,101 @@ img#bat2 {
 }
     }
 
+#car {
+    width: 300px;
+    right: 200px;
+    bottom: 20px;
+    z-index: 4;
+    position: absolute;
+}
+
+@media screen and (max-width:865px){
+    #answer-box{
+        width:640px;
+    }
+    #car{
+        width:250px;
+        right:111px;
+    }
+}
+@media screen and (max-width:1050px){
+    .sandipbg1,.sandipbg2,.sandipbg3{
+        background-size: cover;
+    }
+}
+@media screen and (max-width:700px){
+    .sandipbg1,.sandipbg2,.sandipbg3{
+        background-size: cover;
+        background-position: center left;
+    }
+    #car {
+        width: 211px;
+        right: 109px;
+        bottom: 40px;
+    }
+    .topleftlogo {
+        position: absolute;
+        left: 3%;
+        top: 4%;
+        width: 94px;
+    }
+    .toprightlogo {
+        position: absolute;
+        right: 3%;
+        top: 2%;
+        width: 31px;
+    }
+    #ml2 {
+        width: 115px!important;
+    }
+    #batball2{
+        position: relative;
+        bottom: -6%;
+    }
+    img#bat2 {
+        transform: scaleX(-1);
+        width: 81px;
+    }
+    #ball2 {
+        height: 23px;
+        width: 24px;
+    }
+    img#helmet2 {
+        width: 72px;
+    }
+    .options {
+        grid-template-columns: 1fr;
+        grid-gap: 19px 10px;
+    }
+    #answer-box {
+        width: 317px;
+        top:40%;
+    }
+    
+    
+}
+#ml2{
+    width:200px;
+}
 @media screen and (max-width:525px){
     .middlelogo{
         top:9%;
         width:230px;
     }
+    #ml2{
+        top:2%;
+    }
+    #car {
+        width: 180px;
+        right: 63px;
+    }
+
+
 }
+
+
+
+
 @media screen and (max-width:390px){
     img#playhelmet {
         width: 93px;
