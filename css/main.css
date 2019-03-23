@@ -1,3 +1,14 @@
+@font-face {
+    font-family: congFont;
+    src: url("../font/Nilland-Black.ttf");
+  }
+  @font-face {
+    font-family: congFont;
+    src: url("../font/Nilland-Black.ttf");
+  }@font-face {
+    font-family: congFont;
+    src: url("../font/Nilland-Black.ttf");
+  }
 html, body{
     height: 100vh;
     width: 100vw;
@@ -217,11 +228,76 @@ ul, ol{
 .sandipbg1{
     background-image: url('../images/Post-01.png');
 }
+.sandipbg1:before{
+    content: "Congratulation ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 34%;
+    background-color: #060763;
+    position: absolute;
+    margin-top: 82px;
+    font-size: 3rem;
+    font-family: 'congFont';
+}
+.sandipbg1:after{
+    content: " You win ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 47%;
+    background-color: #1e7eee;
+    position: absolute;
+    margin-top: 145px;
+    font-size: 2rem;
+    font-family: 'congFont';
+}
 .sandipbg2{
     background-image: url('../images/Post-02.png'); 
 }
+.sandipbg2:before{
+    content: "Congratulation ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 34%;
+    background-color: #354f98;
+    position: absolute;
+    margin-top: 82px;
+    font-size: 3rem;
+}
+.sandipbg2:after{
+    content: " You win ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 47%;
+    background-color: #1e7eee;
+    position: absolute;
+    margin-top: 145px;
+    font-size: 2rem;
+    font-family: 'congFont';
+}
 .sandipbg3{
     background-image: url('../images/Post-03.png');
+}
+.sandipbg3:before{
+    content: "Congratulation ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 34%;
+    background-color: #354f98;
+    position: absolute;
+    margin-top: 82px;
+    font-size: 3rem;
+    
+}
+.sandipbg3:after{
+    content: " You win ";
+    color: rgb(243, 233, 233);
+    border: 1px solid blue;
+    margin-left: 47%;
+    background-color: #1e7eee;
+    position: absolute;
+    margin-top: 145px;
+    font-size: 2rem;
+    font-family: 'congFont';
 }
 img#bat {
     position: absolute;
