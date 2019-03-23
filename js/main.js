@@ -53,46 +53,54 @@ $(document).ready(function() {
   var balls = 6;
 
 
-// function cddisplay() {
-//     // displays time in span
-//     document.getElementById('time').innerHTML = count;
-// };
+function cddisplay() {
+    // displays time in span
+    document.getElementById('time').innerHTML = count;
+};
 
-// function countdown() {
-//     // starts countdown
-//     // countdown = function(){};
-//     cddisplay();
-//     if (count == 0) {
-//         // time is up
-//     } else {
-//         count--;
-//         t = setTimeout(countdown(),  1000);
-//     }
-// };
+    // var count = 16;
+    // var interval = setInterval(function(){
+    //   document.getElementById('playEnter').innerHTML=count;
+    //   count--;
+    //   if (count === 0){
+    //     clearInterval(interval);
+    //     document.getElementById('playEnter').innerHTML='Done';
+    //     // or...
+    //     alert("You're out of time!");
+    //   }
+    // }, 1000);
 
-// function cdpause() {
-//     // pauses countdown
-//     clearTimeout(t);
-// };
+/*function countdown() {
+    // starts countdown
+    // countdown = function(){};
+    cddisplay();
+    if (count == 0) {
+        // time is up
+    } else {
+        count--;
+        t = setTimeout(countdown(),  1000);
+    }
+};*/
 
-// function cdreset() {
-//     // resets countdown
-//     cdpause();
-//     count = CCOUNT;
-//     cddisplay();
-// };
 
-function counter() {
- 
-  for ( var i = 0; i >= 0; i++){
-    $('.counter').text(i);
-  }
-}
+/*function cdpause() {
+    // pauses countdown
+    clearTimeout(t);
+};*/
+
+/*function cdreset() {
+    // resets countdown
+    cdpause();
+    count = CCOUNT;
+    cddisplay();
+};*/
+
+
   //start
   startQuestions();
 
   function startQuestions() {
-    getFromJson(requestURL, questionCounter);
+    getFromJson(requestURL, questionCounter);    
     $(".sandipScreen").click(() => {
       if (questionCounter < 5) {
         questionCounter++;
@@ -130,7 +138,7 @@ function counter() {
     $(".options > li")
       .off("click")
       .on("click", function() {
-        cdpause();
+        // cdpause();
         checkAnswer(answer, $(this)[0].id);
       });
 
