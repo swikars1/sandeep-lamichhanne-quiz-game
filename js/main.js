@@ -53,34 +53,34 @@ $(document).ready(function() {
   var balls = 6;
 
 
-function cddisplay() {
-    // displays time in span
-    document.getElementById('time').innerHTML = count;
-};
+// function cddisplay() {
+//     // displays time in span
+//     document.getElementById('time').innerHTML = count;
+// };
 
-function countdown() {
-    // starts countdown
-    // countdown = function(){};
-    cddisplay();
-    if (count == 0) {
-        // time is up
-    } else {
-        count--;
-        t = setTimeout(countdown(),  1000);
-    }
-};
+// function countdown() {
+//     // starts countdown
+//     // countdown = function(){};
+//     cddisplay();
+//     if (count == 0) {
+//         // time is up
+//     } else {
+//         count--;
+//         t = setTimeout(countdown(),  1000);
+//     }
+// };
 
-function cdpause() {
-    // pauses countdown
-    clearTimeout(t);
-};
+// function cdpause() {
+//     // pauses countdown
+//     clearTimeout(t);
+// };
 
-function cdreset() {
-    // resets countdown
-    cdpause();
-    count = CCOUNT;
-    cddisplay();
-};
+// function cdreset() {
+//     // resets countdown
+//     cdpause();
+//     count = CCOUNT;
+//     cddisplay();
+// };
 
 
   //start

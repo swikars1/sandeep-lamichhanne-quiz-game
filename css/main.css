@@ -569,7 +569,16 @@ img#helmet2 {
         width: 180px;
         right: 63px;
     }
-
+    .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
+        margin-left: 11%;
+        margin-top: 162px;
+        font-size: 2.3rem;
+    }
+    .sandipbg1:after, ,.sandipbg2:after, .sandipbg3:after{
+        margin-left: 31%;
+        margin-top: 209px;
+        font-size: 1.4rem;
+    }
 
 }
 
@@ -606,5 +615,15 @@ img#helmet2 {
     }
     #helmet{
         left: 215px;
+    }
+    .sandipbg1:before, .sandipbg2:before, .sandipbg3:before{
+        margin-left: 11%;
+        margin-top: 162px;
+        font-size: 1.8rem;
+    }
+    .sandipbg1:after,.sandipbg2:after, .sandipbg3:after {
+        margin-left: 31%;
+        margin-top: 200px;
+        font-size: 1rem;
     }
 }
