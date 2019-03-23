@@ -58,7 +58,19 @@ function cddisplay() {
     document.getElementById('time').innerHTML = count;
 };
 
-function countdown() {
+    var count = 16;
+    var interval = setInterval(function(){
+      document.getElementById('playEnter').innerHTML=count;
+      count--;
+      if (count === 0){
+        clearInterval(interval);
+        document.getElementById('playEnter').innerHTML='Done';
+        // or...
+        alert("You're out of time!");
+      }
+    }, 1000);
+
+/*function countdown() {
     // starts countdown
     // countdown = function(){};
     cddisplay();
@@ -68,26 +80,27 @@ function countdown() {
         count--;
         t = setTimeout(countdown(),  1000);
     }
-};
+};*/
 
-function cdpause() {
+
+/*function cdpause() {
     // pauses countdown
     clearTimeout(t);
-};
+};*/
 
-function cdreset() {
+/*function cdreset() {
     // resets countdown
     cdpause();
     count = CCOUNT;
     cddisplay();
-};
+};*/
 
 
   //start
   startQuestions();
 
   function startQuestions() {
-    getFromJson(requestURL, questionCounter);
+    getFromJson(requestURL, questionCounter);    
     $(".sandipScreen").click(() => {
       if (questionCounter < 5) {
         questionCounter++;
