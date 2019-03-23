@@ -82,7 +82,12 @@ $(document).ready(function() {
 //     cddisplay();
 // };
 
-
+function counter() {
+ 
+  for ( var i = 0; i >= 0; i++){
+    $('.counter').text(i);
+  }
+}
   //start
   startQuestions();
 
