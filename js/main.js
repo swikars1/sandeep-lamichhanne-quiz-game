@@ -1,11 +1,7 @@
-
-  var CCOUNT = 15;
-    
-  var t, count=15;
-$(document).ready(function() {
+$(document).ready(function () {
   $('#congP').hide();
   $('#playAgain').hide();
-    // Initialize Firebase
+  // Initialize Firebase
   var firebaseConfig = {
     apiKey: "AIzaSyCkasK766oZWbGJfGp8JYoXNIMoP03Pyho",
     authDomain: "fb-quiz-app.firebaseapp.com",
@@ -16,12 +12,13 @@ $(document).ready(function() {
   };
   firebase.initializeApp(firebaseConfig);
 
-  $('#playEnter').on('click', function(event){
+  $('#playEnter').on('click', function (event) {
     $('#bat').addClass('bathit');
     $('#ball').addClass('ballhit');
-    setTimeout(()=>{
-      event.preventDefault();
+    setTimeout(() => {
+      // event.preventDefault();
       $('#playscreen').remove();
+      decre(count);
       // var count = 2;
       // var interval = setInterval(function(){
       //   document.getElementById('playEnter').innerHTML=count;
@@ -33,7 +30,7 @@ $(document).ready(function() {
       //     alert("You're out of time!");
       //   }
       // }, 1000);
-    },2000);
+    }, 2000);
   });
 
 
@@ -41,12 +38,11 @@ $(document).ready(function() {
     firebase
       .database()
       .ref("winners/" + userId)
-      .set(
-        {
+      .set({
           first_name: first_name,
           last_name: last_name
         },
-        function(error) {
+        function (error) {
           if (error) {
             // The write failed...
             console.error("write failed");
@@ -62,52 +58,84 @@ $(document).ready(function() {
   var questionCounter = 0;
   var score = 0;
   var balls = 6;
+  var timer = $('#timer')
+  var count = 5
+  function write(count) {
+    timer.text(count)
+    
+  }
+  function decre(count) {
+      interval = setInterval(() => {
+      if (count >= 0) {
+        write(count)
+        count--
+      } else {
+        $(".options > li")
+        .css({
+          "pointer-events": "none",
+        });
+        
+        // resetcount();
+        //TODO:
+        //timeup() function
+      }
+    }, 1000);
+  }
+
+  function cleartimer() {
+    clearInterval();
+  }
 
 
-function cddisplay() {
+
+  function cddisplay() {
     // displays time in span
     document.getElementById('time').innerHTML = count;
-};
+  };
 
 
 
-/*function countdown() {a
-    // starts countdown
-    // countdown = function(){};
-    cddisplay();
-    if (count == 0) {
-        // time is up
-    } else {
-        count--;
-        t = setTimeout(countdown(),  1000);
-    }
-};*/
+  /*function countdown() {a
+      // starts countdown
+      // countdown = function(){};
+      cddisplay();
+      if (count == 0) {
+          // time is up
+      } else {
+          count--;
+          t = setTimeout(countdown(),  1000);
+      }
+  };*/
 
 
-/*function cdpause() {
-    // pauses countdown
-    clearTimeout(t);
-};*/
+  /*function cdpause() {
+      // pauses countdown
+      clearTimeout(t);
+  };*/
 
-/*function cdreset() {
-    // resets countdown
-    cdpause();
-    count = CCOUNT;
-    cddisplay();
-};*/
+  /*function cdreset() {
+      // resets countdown
+      cdpause();
+      count = CCOUNT;
+      cddisplay();
+  };*/
 
-
+  
   //start
   startQuestions();
+
   function startQuestions() {
-    getFromJson(requestURL, questionCounter);    
+    getFromJson(requestURL, questionCounter);
     $(".sandipScreen").click(() => {
+      count =5;
+      clearInterval();
+      decre(count);
+
       if (questionCounter < 5) {
         questionCounter++;
         getFromJson(requestURL, questionCounter);
         balls--;
-      }
-      else{
+      } else {
         quizComplete();
       }
     });
@@ -115,20 +143,26 @@ function cddisplay() {
 
   function getFromJson(requestURL, questionPos) {
     $(".sandipScreen").hide();
-    $.getJSON(requestURL, function(questionData) {
+    $.getJSON(requestURL, function (questionData) {
       setQuestionOptions(questionData, questionPos);
-      
+
     });
   }
 
   function setQuestionOptions(questionData, questionPos) {
-    $('#answer-box').attr('data-content',`Round: ${questionCounter+1}`);
+    $('#answer-box').attr('data-content', `Round: ${questionCounter+1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
-      .css({"pointer-events":"unset","opacity":"1"});
-      $('#incor').removeClass('slideleft');
+      .css({
+        "pointer-events": "unset",
+        "opacity": "1"
+      });
+    $('#incor').removeClass('slideleft');
     setBalls(balls);
-    $('#fifty').css({"pointer-events":"unset","opacity":"1"});
+    $('#fifty').css({
+      "pointer-events": "unset",
+      "opacity": "1"
+    });
     $("#question").text(questionData.questions[questionPos].question);
     $("#opt1").text(questionData.questions[questionPos].option1);
     $("#opt2").text(questionData.questions[questionPos].option2);
@@ -137,35 +171,41 @@ function cddisplay() {
     answer = questionData.questions[questionPos].answer;
     $(".options > li")
       .off("click")
-      .on("click", function() {
+      .on("click", function () {
         // cdpause();
+        clearInterval(interval)
         checkAnswer(answer, $(this)[0].id);
       });
 
     $('#fifty').off("click")
-    .on("click", function() {
-      $(this).css({"pointer-events":"none","opacity":"0"});
-      firstran =  Math.floor(Math.random() * 2) + 1;
-      secondran =  Math.floor(Math.random() * 2) + 3;
+      .on("click", function () {
+        $(this).css({
+          "pointer-events": "none",
+          "opacity": "0"
+        });
+        firstran = Math.floor(Math.random() * 2) + 1;
+        secondran = Math.floor(Math.random() * 2) + 3;
 
-      if(firstran==answer && firstran==1) firstran = 2;
-      if(firstran==answer && firstran==2) firstran = 1;
-      if(secondran==answer && secondran==3) secondran = 4;
-      if(secondran==answer && secondran==4) secondran = 3;
+        if (firstran == answer && firstran == 1) firstran = 2;
+        if (firstran == answer && firstran == 2) firstran = 1;
+        if (secondran == answer && secondran == 3) secondran = 4;
+        if (secondran == answer && secondran == 4) secondran = 3;
 
-       removeTwo(firstran, secondran);
-    });
+        removeTwo(firstran, secondran);
+      });
   }
 
-  function removeTwo(firstran, secondran){
+  function removeTwo(firstran, secondran) {
     $(`#opt${firstran},#opt${secondran}`)
-      .css('pointer-events','none')
-      .animate({'opacity':'0'},500, "linear");
-      $('#fifty').remove();
+      .css('pointer-events', 'none')
+      .animate({
+        'opacity': '0'
+      }, 500, "linear");
+    $('#fifty').remove();
   }
 
   function checkAnswer(answer, checkId) {
-    
+
     answerId = "opt" + answer;
 
     $(".sandipScreen").show();
@@ -176,48 +216,60 @@ function cddisplay() {
       // correct option
       score++;
       $("#" + checkId).addClass("correctOpt");
-      switch(questionCounter){
+      switch (questionCounter) {
         case 0:
           $(".sandipScreen")
-            .css('opacity','0')
+            .css('opacity', '0')
             .removeClass('sandipbg2 sandipbg3')
             .addClass('sandipbg1')
-            .animate({'opacity':'1'},1000,"linear");
-        break;
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
+          break;
         case 1:
           $(".sandipScreen")
-            .css('opacity','0')
+            .css('opacity', '0')
             .removeClass('sandipbg1 sandipbg3')
             .addClass('sandipbg2')
-            .animate({'opacity':'1'},1000,"linear");
-        break;
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
+          break;
         case 2:
-        $(".sandipScreen")
-            .css('opacity','0')
+          $(".sandipScreen")
+            .css('opacity', '0')
             .removeClass('sandipbg2 sandipbg1')
             .addClass('sandipbg3')
-            .animate({'opacity':'1'},1000,"linear");
-        break;
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
+          break;
         case 3:
           $(".sandipScreen")
-            .css('opacity','0')
+            .css('opacity', '0')
             .removeClass('sandipbg2 sandipbg3')
             .addClass('sandipbg1')
-            .animate({'opacity':'1'},1000,"linear");
-        break;
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
+          break;
         case 4:
           $(".sandipScreen")
-            .css('opacity','0')
+            .css('opacity', '0')
             .removeClass('sandipbg1 sandipbg3')
             .addClass('sandipbg2')
-            .animate({'opacity':'1'},1000,"linear");
-        break;
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
+          break;
         case 5:
           $(".sandipScreen")
-            .css('opacity','0')
+            .css('opacity', '0')
             .removeClass('sandipbg2 sandipbg3')
             .addClass('sandipbg1')
-            .animate({'opacity':'1'},1000,"linear");
+            .animate({
+              'opacity': '1'
+            }, 1000, "linear");
           break;
       }
       setScore(score);
@@ -227,33 +279,37 @@ function cddisplay() {
       $('#incor').addClass('slideleft');
       $("#" + checkId).addClass("incorrectOpt");
       $(".sandipScreen")
-            .removeClass('sandipbg1 sandipbg2 sandipbg3')
+        .removeClass('sandipbg1 sandipbg2 sandipbg3')
     }
   }
+
+
 
   function setScore(score) {
     $("#score").text(`Score: ${score}`);
   }
+
   function setBalls(balls) {
     $("#balls").text(`Balls Remaining: ${balls}`);
   }
-  function quizComplete(){
+
+  function quizComplete() {
     $('#answer-box').fadeOut(800);
-    $('.sandipScreen').fadeOut(800, function(){
+    $('.sandipScreen').fadeOut(800, function () {
       $('#congP').text(`Your score is: ${score}`);
 
-      if (score==6) {
+      if (score == 6) {
         writeUserData("fireid2", "swiakr", "SHARMNA"); //writing to firebase
       }
 
       $('#playAgain').text(`Try Again`);
-      $('#playAgain').click(function(){
+      $('#playAgain').click(function () {
         location.reload();
         console.log("restarted");
-        
+
       });
       console.log(score);
-      
+
       $('#balls').hide();
       $('#score').hide();
     });
@@ -269,13 +325,13 @@ function cddisplay() {
 // next button system
 
 // initialize and setup facebook js sdk
-window.fbAsyncInit = function() {
+window.fbAsyncInit = function () {
   FB.init({
     appId: "315495869163777",
     xfbml: true,
     version: "v2.5"
   });
-  FB.getLoginStatus(function(response) {
+  FB.getLoginStatus(function (response) {
     if (response.status === "connected") {
       document.getElementById("status").innerHTML = "We are connected.";
       document.getElementById("login").style.visibility = "hidden";
@@ -287,7 +343,7 @@ window.fbAsyncInit = function() {
     }
   });
 };
-(function(d, s, id) {
+(function (d, s, id) {
   var js,
     fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {
@@ -303,7 +359,7 @@ window.fbAsyncInit = function() {
 // login with facebook with extra permissions
 $("#button").on("click", function login() {
   FB.login(
-    function(response) {
+    function (response) {
       if (response.status === "connected") {
         document.getElementById("status").innerHTML = "We are connected.";
         document.getElementById("login").style.visibility = "hidden";
@@ -313,13 +369,16 @@ $("#button").on("click", function login() {
         document.getElementById("status").innerHTML =
           "You are not logged into Facebook.";
       }
-    },
-    { scope: "email, user_friends" }
+    }, {
+      scope: "email, user_friends"
+    }
   );
 });
 
 $("#button").on("click", function getInfo() {
-  FB.api("/me", "GET", { fields: "first_name,last_name,name,id" }, function(
+  FB.api("/me", "GET", {
+    fields: "first_name,last_name,name,id"
+  }, function (
     response
   ) {
     var userId = (document.getElementById("status").innerHTML = response.id);
@@ -340,6 +399,6 @@ $("#button").on("click", function getInfo() {
 //   result_holder.innerHTML = '<h2>Result list of your friends:</h2>' + results;
 // });
 
-$("#button").click(function() {
+$("#button").click(function () {
   $(".hidden").hide();
 });

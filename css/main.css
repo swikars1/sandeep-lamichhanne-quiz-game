@@ -213,6 +213,10 @@ ul, ol{
     bottom: 0%;
     background-color: white;
 }
+#timer {
+    position: absolute;
+    z-index: 4;
+}
 .sandipScreen{
     position: absolute;
     height:100%;
@@ -441,20 +445,22 @@ img#ball {
 
 img#bat2 {
     transform: scaleX(-1);
-
     width: 179px;
-
+    position: absolute;
+    bottom: 90px;
 }
 #ball2 {
     height: 41px;
-
+    position: absolute;
     width: 44px;
-
+    bottom: 114px;
+    left: 180px;
 }
 img#helmet2 {
-
     width: 126px;
-
+    position: absolute;
+    bottom: 80px;
+    left: 234px;
 }
 @keyframes slideleft{
     100%{
@@ -544,9 +550,11 @@ img#helmet2 {
     #ball2 {
         height: 23px;
         width: 24px;
+        left:100px;
     }
     img#helmet2 {
         width: 72px;
+        left:136px;
     }
     .options {
         grid-template-columns: 1fr;
@@ -579,7 +587,7 @@ img#helmet2 {
         margin-top: 162px;
         font-size: 2.3rem;
     }
-    .sandipbg1:after, ,.sandipbg2:after, .sandipbg3:after{
+    .sandipbg1:after, .sandipbg2:after, .sandipbg3:after{
         margin-left: 31%;
         margin-top: 209px;
         font-size: 1.4rem;
