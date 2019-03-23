@@ -113,7 +113,7 @@ function cdreset() {
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
       .css({"pointer-events":"unset","opacity":"1"});
-
+      $('#incor').removeClass('slideleft');
     setBalls(balls);
     $('#fifty').css({"pointer-events":"unset","opacity":"1"});
     $("#question").text(questionData.questions[questionPos].question);
@@ -210,6 +210,8 @@ function cdreset() {
       setScore(score);
     } else {
       // incorrect option
+
+      $('#incor').addClass('slideleft');
       $("#" + checkId).addClass("incorrectOpt");
       $(".sandipScreen")
             .removeClass('sandipbg1 sandipbg2 sandipbg3')

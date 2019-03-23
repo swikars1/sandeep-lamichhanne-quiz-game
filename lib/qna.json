@@ -1,52 +1,52 @@
 {
     "questions": [
       {
-        "question": "What is the name of Draco Malfoy's son?",
-        "option1": "Scorpius",
-        "option2": "Lucius",
-        "option3": "Diego",
-        "option4": "Severus",
+        "question": "Sandeep is throwing a googly, you would?",
+        "option1": "A. Play away from pad",
+        "option2": "B. Take an early shot",
+        "option3": "C. Play late in backfoot",
+        "option4": "D. Leave the ball",
         "answer": 1
       },
       {
-        "question": "What creature does Dumbledore have as a pet?",
-        "option1": "other",
-        "option2": "soul",
-        "option3": "gotten",
-        "option4": "chocolate",
+        "question": "Sandip is ready with a wrong-un, you would?",
+        "option1": "A. Wait and Play straight",
+        "option2": "B. Hook the ball",
+        "option3": "C. Sweep the ball",
+        "option4": "D. Leave the ball",
         "answer": 2
       },
       {
-        "question": "What is Voldemort's final horcrux?",
-        "option1": "starfish",
-        "option2": "hotdog",
-        "option3": "flavour",
-        "option4": "water",
+        "question": "Sandeep is coming with spin pitching in leg going toward off, you would?",
+        "option1": "A. Make room and hit towards square",
+        "option2": "B. Get in back foot and block",
+        "option3": "C. Leave the ball",
+        "option4": "D. Hit the ball to third wicket",
+        "answer": 1
+      },
+      {
+        "question": "Sandeep over pitched the ball, you would ?",
+        "option1": "A. Hit for six",
+        "option2": "B. Hit straight drive",
+        "option3": "C. Defend it",
+        "option4": "D. Hook it",
+        "answer": 2
+      },
+      {
+        "question": "Sandeep is coming with ball at 80 KMPH, you would?",
+        "option1": "A. Defend it",
+        "option2": "B. Go for stratight drive ",
+        "option3": "C. Play towards on side",
+        "option4": "D. Play towards off side",
         "answer": 3
       },
       {
-        "question": "Who takes over as headmaster of Hogwarts after Dumbledore's death?",
-        "option1": "social",
-        "option2": "emitome",
-        "option3": "coming",
-        "option4": "socorrose",
+        "question": "Sandip added a slip and a gully, you would?",
+        "option1": "A. Play straight",
+        "option2": "B. Play towards square",
+        "option3": "C. Play towards on side",
+        "option4": "D. Play towards off side",
         "answer": 4
-      },
-      {
-        "question": "Who killed Deatheater Antonin Dolohov during the Battle of Hogwarts?",
-        "option1": "plutoes",
-        "option2": "greexy",
-        "option3": "serxy",
-        "option4": "sorlax",
-        "answer": 1
-      },
-      {
-        "question": "Why does everyone on earth behave like they want to be killed?",
-        "option1": "givern",
-        "option2": "maskrt",
-        "option3": "jafficoet",
-        "option4": "zouellaic",
-        "answer": 2
       }
     ]
   }

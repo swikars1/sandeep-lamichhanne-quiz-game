@@ -47,9 +47,29 @@ ul, ol{
     height:100px;
     background-color:rgba(189, 255, 237, 0.514)
 }
-#time{
+#incor{
     position: absolute;
+    width:290px;
+    font-size:35px;
+    background-color: rgba(255, 0, 0, 0.511);
+    color:rgb(0, 0, 0);
+    z-index: 4;
+    border-radius:5px;
+    height:80px;
+    font-weight: 800;
+    left:50%;
+    top:50%;
+    transform:translate(-1150%,1150%);
+    -webkit-box-shadow: 7px -8px 24px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 7px -8px 24px -1px rgba(0,0,0,0.75);
+    box-shadow: 7px -8px 24px -1px rgba(0,0,0,0.75);
+    vertical-align: middle;
+    text-align: center;
+    padding-top:35px;
 
+}
+.slideleft{
+    animation: slideleft 500ms linear forwards;
 }
 .options{
     display:grid;
@@ -60,7 +80,14 @@ ul, ol{
     margin-left:-35px;
 }
 .options li, #lastPage p {
-    background-color: #edefec;
+    background: rgba(196,204,191,1);
+    background: -moz-linear-gradient(left, rgba(196,204,191,1) 0%, rgba(255,255,255,1) 45%, rgba(235,240,232,1) 83%, rgba(196,204,191,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(196,204,191,1)), color-stop(45%, rgba(255,255,255,1)), color-stop(83%, rgba(235,240,232,1)), color-stop(100%, rgba(196,204,191,1)));
+    background: -webkit-linear-gradient(left, rgba(196,204,191,1) 0%, rgba(255,255,255,1) 45%, rgba(235,240,232,1) 83%, rgba(196,204,191,1) 100%);
+    background: -o-linear-gradient(left, rgba(196,204,191,1) 0%, rgba(255,255,255,1) 45%, rgba(235,240,232,1) 83%, rgba(196,204,191,1) 100%);
+    background: -ms-linear-gradient(left, rgba(196,204,191,1) 0%, rgba(255,255,255,1) 45%, rgba(235,240,232,1) 83%, rgba(196,204,191,1) 100%);
+    background: linear-gradient(to right, rgba(196,204,191,1) 0%, rgba(255,255,255,1) 45%, rgba(235,240,232,1) 83%, rgba(196,204,191,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4ccbf', endColorstr='#c4ccbf', GradientType=1 );
     color: rgb(15, 15, 15);
     font-size: 17px;
     justify-self: center;
@@ -70,12 +97,12 @@ ul, ol{
     border-radius: 10px;
     min-width: 300px;
     width:fit-content;
-    padding: 3px 0px;
-    text-align: center;
+    padding: 3px 3px;
+    text-align: left;
 }
 .options li:hover, #playAgain:hover{
-    background-color:rgb(0, 0, 0);
-    color:rgb(255, 255, 255);
+    background:rgb(206, 206, 206);
+    color:rgb(0, 0, 0);
     cursor:pointer;
 }
 
@@ -220,25 +247,6 @@ img#playhelmet {
     top:2%;
     width:45px;
 }
-/* #bat {
-    animation: swing ease 1s infinite alternate-reverse;
-    transform-origin: center 0px;
-    float:left;
-    } */
-/* #bat:after{ 
-    position: absolute;  
-    width: 20px; height: 20px;  
-    border: 1px solid #999;
-    top: -10px; left: 50%;
-    z-index: 0;
-    border-bottom: none;
-    border-right: none;
-    transform: rotate(45deg);
-}  */
-/*@keyframes swing {
-    0% { transform: rotate(6deg); }
-    100% { transform: rotate(-10deg); }
-} */
 
 img#ball {
     position: absolute;
@@ -248,11 +256,11 @@ img#ball {
     /* animation: slideleft 1s cubic-bezier(.17,.67,.78,.3) forwards; */
 }
 .correctOpt{
-    background-color:rgb(38, 136, 38) !important;
+    background:rgb(38, 136, 38) !important;
     color: white !important;
 }
 .incorrectOpt{
-    background-color:rgb(185, 35, 35) !important;
+    background:rgb(185, 35, 35) !important;
     color: white !important;
 } 
 #scoreboard{
@@ -366,6 +374,11 @@ img#helmet2 {
 
     width: 126px;
 
+}
+@keyframes slideleft{
+    100%{
+        transform:translate(-50%, -50%)
+    }
 }
 
 @keyframes bathit{
