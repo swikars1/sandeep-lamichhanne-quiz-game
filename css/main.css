@@ -321,19 +321,26 @@ img#ball {
     font-size: 40px;
     margin-top: 81px;
 }
-#fifty{
-    position: relative;
-    margin-left:48%;
-    color:rgb(236, 234, 234);
-    background-color:rgb(0, 0, 0);
+#fifty {
+    position: absolute;
+    /* margin-left: 48%; */
+    color: rgb(236, 234, 234);
+    background-color: rgba(0, 0, 0, 0.58);
     display: inline-block;
-    padding:2px;
-    border-radius:3px;
+    /* padding: 2px; */
+    /* border-radius: 3px; */
+    top: 130%;
     cursor: pointer;
+    padding: 15px;
+    font-size: 23px;
+    border: 2px solid grey;
+    cursor: pointer;
+    border-radius: 39%;
+    left: 44%;
 }
-#fifty:hover{
-    background-color:rgb(182, 182, 182);
-    color:black;
+#fifty:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
 }
 
 .bathit{
@@ -396,6 +403,13 @@ img#helmet2 {
     }
 }
 @media screen and (max-width:1050px){
+    #fifty {
+        top: 106%;
+
+        padding: 15px;
+        font-size: 15px;
+        left: 29%;
+    }
     .sandipbg1,.sandipbg2,.sandipbg3{
         background-size: cover;
     }
@@ -470,7 +484,12 @@ img#helmet2 {
 
 }
 
+@media screen and (max-width:480px){
+#helmet2{
+    display: none;
+}
 
+}
 
 
 @media screen and (max-width:390px){
