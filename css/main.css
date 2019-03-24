@@ -64,7 +64,7 @@ ul, ol{
     border-radius: 11px;
     box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
     left: 54%;
-    top: 69%;
+    top: 64%;
     height: 41px;
      progid:DXImageTransformMicrosoftgradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
 }
@@ -263,8 +263,9 @@ ul, ol{
     border-radius: 11px;
     box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
     left: 52%;
-    top: 65%;
+    top: 67%;
     z-index:4;
+    top: 67%;
     height: 41px;
 }
 .sandipbg1{
@@ -665,11 +666,45 @@ img#helmet2 {
         width: 29px;
     }
 }
-@media screen and (max-width:350px){
-    #playEnter {
-        transform: scale(.7)translate(-50%, -50%);
-        left:35%;
 
+@media screen and (max-width:1859px){
+    #nextball {
+        left: 54%;
+        top: 67%;
+    }
+}
+@media screen and (max-width:360px){
+    #nextball {
+        left: 54%;
+        top: 67%;
+    }
+    #answer-box {
+        width: 317px;
+        top: 33%;
+    }
+    #car {
+        width: 180px;
+        right: 5px;
+    }
+    #ball2 {
+        top: 514px;
+        height: 23px;
+        width: 24px;
+        left: 73px;
+    }
+    .playPos {
+        transform: translate(-50%, -50%);
+        width: 262px;
+        height: 65px;
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        z-index: 10;
+    }
+    img#bat {
+        right: 216px;
+        top: -32px;
+        width: 118px;
     }
     #helmet{
         left: 215px;
