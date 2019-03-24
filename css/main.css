@@ -711,4 +711,30 @@ img#helmet2 {
         margin-top: 200px;
         font-size: 1rem;
     }
+
+
+    #timer {
+        position: absolute;
+        z-index: 4;
+        top: 110.7%;
+        font-weight: 700;
+        font-size: 42px;
+        background: none;
+        /* border-radius: 50%; */
+        vertical-align: middle;
+        width: 12pc;
+        color: rgba(3, 37, 30, 0.411);
+        height: 30px;
+        /* border: 2px solid gray; */
+        padding: 10px 0 10px 0;
+        margin-top: 12px;
+        left: 17.5%;
+        text-align: center;
+    }
+    #fifty {
+        top: 103%;
+        padding: 15px;
+        font-size: 15px;
+        left: 21%;
+    }
 }
