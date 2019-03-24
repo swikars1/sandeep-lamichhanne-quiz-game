@@ -54,11 +54,11 @@ ul, ol{
     background-position: center center;     
 }
 #nextball {
-    left: 56%;
+    right: 37%;
     position: absolute;
     color: rgb(236, 234, 234);
     background-color: rgba(0, 0, 0, 0.58);
-    display: inline-block;
+    display: block;
     padding: 15px;
     font-size: 23px;
     border: 2px solid grey;
@@ -253,7 +253,7 @@ ul, ol{
 
 
 
-}
+
 .sandipbg1{
     background-image: url(../images/Post-01.png);
     background-repeat: no-repeat, repeat;
@@ -294,7 +294,7 @@ ul, ol{
     background-size: cover;
     /* background-color: white; */
     max-width: 990px;
-    left: 0px;
+    left: 188px;
     position: absolute;
 
 }
@@ -305,7 +305,8 @@ ul, ol{
     background-color: #354f98;
     position: absolute;
     left: 38%;
-    top: -11%;
+    top: 10%;
+    font-size: 3rem;
 }
 .sandipbg2:after{
     content: " Try Again ";
@@ -314,8 +315,9 @@ ul, ol{
     background-color: #1e7eee;
     position: absolute;
     font-family: 'congFont';
-    top: -82px;
-    left: 214px;
+    top: 124px;
+    left: 50%;
+    font-size: 1.5rem;
 }
 .sandipbg3{
     /* background-image: url('../images/Post-03.png'); */
@@ -371,7 +373,7 @@ img#playhelmet {
 #lastone{
     padding: 0;
     width: 100vw;
-    /* background-color: red; */
+    /* background-image: url(../images/Post-01.png); */
     height: 100vh;
     margin: 0;
 }
@@ -543,85 +545,35 @@ img#helmet2 {
 
 
 
-
-
-
-
-
-@media screen and (max-width:1050px){
+@media screen and (max-width:865px){
+    #answer-box{
+        width:640px;
+    }
+    #car{
+        width:250px;
+        right:111px;
+    }
+}
+/* @media screen and (max-width:1050px){
     #fifty {
-        position: absolute;
-    color: rgb(236, 234, 234);
-    background-color: rgba(0, 0, 0, 0.58);
-    display: inline-block;
-    bottom: 27%;
-    padding: 15px;
-    font-size: 23px;
-    border: 2px solid grey;
-    cursor: pointer;
-    border-radius: 39%;
-    left: 34%;
-    width: 80px;
-    text-align: center;
+        top: 106%;
+
+        padding: 15px;
+        font-size: 15px;
+        left: 29%;
     }
     .sandipbg1,.sandipbg2,.sandipbg3{
         background-size: cover;
     }
-    #timer {
-        top: 215.7%;
-
-    }
-    #car {
-        width: 300px;
-        right: 50px;
-        bottom: 20px;
-        z-index: 4;
-        position: absolute;
-    }
-}
-/* @media screen and (max-width:725px){
-#car {
-    width: 300px;
-    right: -2px;
-    bottom: 20px;
-    z-index: 4;
-    position: absolute;
-}
 } */
 @media screen and (max-width:700px){
     .sandipbg1,.sandipbg2,.sandipbg3{
         background-size: cover;
         background-position: center left;
-        left:0;
-    }
-   /* #playscreen {
-    width: 110%;
-
-   } */
-   #quiz-canvas {
-    padding-top: 50px;
-    height: calc(100% - 50px);
-    background-image: url(../images/mainbg.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-    #timer {
-        top: 153.7%;
-
-    }
-    #fifty {
-        background-color: rgba(0, 0, 0, 0.58);
-        display: inline-block;
-        bottom: 23%;
-        
-        left: 34%;
-        width: 80px;
-        
     }
     #car {
-        left: 443px;
         width: 211px;
+        right: 109px;
         bottom: 40px;
     }
     .topleftlogo {
@@ -647,7 +599,6 @@ img#helmet2 {
         transform: scaleX(-1);
         width: 81px;
     }
-    
     #ball2 {
         height: 23px;
         width: 24px;
@@ -665,27 +616,13 @@ img#helmet2 {
         width: 317px;
         top:40%;
     }
-    #nextball {
-        left: 52%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: inline-block;
-        padding: 15px;
-        font-size: 23px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        bottom: 23%;
-    }
-    
     
     
 }
 #ml2{
     width:200px;
 }
-@media screen and (max-width:800px){
+@media screen and (max-width:525px){
     .middlelogo{
         top:9%;
         width:230px;
@@ -694,8 +631,8 @@ img#helmet2 {
         top:2%;
     }
     #car {
-        width: 280px;
-        right: -3px;
+        width: 180px;
+        right: 63px;
     }
     .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
         margin-left: 11%;
@@ -707,48 +644,83 @@ img#helmet2 {
         margin-top: 209px;
         font-size: 1.4rem;
     }
+
+}
+
+@media screen and (max-width:480px){
+#helmet2{
+    display: none;
+}
+
+}
+
+
+@media screen and (max-width:390px){
+    img#playhelmet {
+        width: 93px;
+        top: 86px;
+        left: 179px;
+    }
+    img#bat {
+        right: 249px;
+        top: -32px;
+        width: 118px;
+    }
+    img#ball {
+        top: 116px;
+        left: 3px;
+        width: 29px;
+    }
+}
+
+
+@media screen and (max-width:360px){
+    #nextball {
+        left: 54%;
+        top: 67%;
+    }
+    #answer-box {
+        width: 317px;
+        top: 33%;
+    }
+    #car {
+        width: 180px;
+        right: 5px;
+    }
     #ball2 {
-        height: 36px;
-        position: absolute;
-        width: 39px;
-        bottom: 114px;
-        left: 147px;
-    
+        top: 514px;
+        height: 23px;
+        width: 24px;
+        left: 73px;
     }
-    img#helmet2 {
-        width: 121px;
+    .playPos {
+        transform: translate(-50%, -50%);
+        width: 262px;
+        height: 65px;
         position: absolute;
-        bottom: 80px;
-        left: 200px;
-
+        top: 58%;
+        left: 50%;
+        z-index: 10;
     }
-    img#bat2 {
-        transform: scaleX(-1);
-        width: 139px;
-
-        position: absolute;
-        bottom: 90px;
+    img#bat {
+        right: 216px;
+        top: -32px;
+        width: 118px;
     }
-
+    #helmet{
+        left: 215px;
+    }
+    .sandipbg1:before, .sandipbg2:before, .sandipbg3:before{
+        margin-left: 11%;
+        margin-top: 162px;
+        font-size: 1.8rem;
+    }
+    .sandipbg1:after,.sandipbg2:after, .sandipbg3:after {
+        margin-left: 31%;
+        margin-top: 200px;
+        font-size: 1rem;
+    }
 }
-@media screen and (min-width:600px){
-    #playscreen {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #tokennum {
     background-color: blue;
