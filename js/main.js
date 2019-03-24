@@ -40,10 +40,10 @@ $(document).ready(function () {
       .database()
       .ref("winners/" + userId)
       .set({
-          first_name: first_name,
-          last_name: last_name,
-          tokenId: "token-"+userId
-        },
+        first_name: first_name,
+        last_name: last_name,
+        tokenId: "token-" + userId
+      },
         function (error) {
           if (error) {
             // The write failed...
@@ -61,23 +61,23 @@ $(document).ready(function () {
   var score = 0;
   var balls = 6;
   var timer = $('#timer')
-  var count = 5
+  var count = 20
   function write(count) {
-    timer.text(`Time: ${count}`)
-    
+    timer.text("Time: " + count)
+
   }
   function decre(count) {
-      interval = setInterval(() => {
+    interval = setInterval(() => {
       if (count >= 0) {
         write(count)
         count--
       } else {
-          $(".options > li")
+        $(".options > li")
           .css({
             "pointer-events": "none",
           });
-          $("#nextball").show(); 
-          $('#fifty').hide(); 
+        $("#nextball").show();
+        $('#fifty').hide();
         // resetcount();
         //TODO:
         //timeup() function
@@ -111,22 +111,21 @@ $(document).ready(function () {
       cddisplay();
   };*/
 
-  
+
   //start
   startQuestions();
 
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count = 5;
-      $('#timer').text(count)
+      count = 20;
       clearInterval(interval);
       decre(count);
-      $('#fifty').show(); 
+      $('#fifty').show();
       $(".options > li")
-      .css({
-        "pointer-events": "unset"
-      });
+        .css({
+          "pointer-events": "unset"
+        });
       $("#nextball").hide();
       if (questionCounter < 5) {
         questionCounter++;
@@ -147,7 +146,7 @@ $(document).ready(function () {
   }
 
   function setQuestionOptions(questionData, questionPos) {
-    $('#answer-box').attr('data-content', `Round: ${questionCounter+1}`);
+    $('#answer-box').attr('data-content', `Round: ${questionCounter + 1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
       .css({
@@ -170,7 +169,7 @@ $(document).ready(function () {
       .off("click")
       .on("click", function () {
         // cdpause();
-    $("#nextball").show();
+        $("#nextball").show();
 
         clearInterval(interval)
         checkAnswer(answer, $(this)[0].id);
@@ -204,7 +203,7 @@ $(document).ready(function () {
   }
 
   function checkAnswer(answer, checkId) {
-    
+
     answerId = "opt" + answer;
 
     $(".options > li").css("pointer-events", "none");
@@ -231,9 +230,17 @@ $(document).ready(function () {
     $('#nextball').fadeOut(800, function () {
       $('#timer').remove();
       $('#nextball').remove();
+      $('#quiz-canvas').remove();
       if (score == 6) {
-        $('#congP').text(`You have completed the quiz. Your token is token-${userId}`).show();
-        writeUserData(userId , first_name, last_name); //writing to firebase
+        $('#root').append(`<div id="lastone" class="sandipbg1">
+                            <p>
+                              Your token is token-${userId}
+                            </p>
+                           </div>`);
+        writeUserData(userId, first_name, last_name); //writing to firebase
+      } else {
+        $('#root').append(`<div id="lastone" class="sandipbg2">
+                           </div>`);
       }
 
       $('#playAgain').text(`Try Again`);
@@ -273,7 +280,7 @@ window.fbAsyncInit = function () {
       // document.getElementById("status").innerHTML = "We are not logged in.";
     } else {
       // document.getElementById("status").innerHTML =
-        // "You are not logged into Facebook.";
+      // "You are not logged into Facebook.";
     }
   });
 };
@@ -315,10 +322,10 @@ $("#button").on("click", function getInfo() {
   }, function (
     response
   ) {
-     userId = response.id;
-     first_name = response.first_name;
-     last_name = response.last_name;
-  });
+      userId = response.id;
+      first_name = response.first_name;
+      last_name = response.last_name;
+    });
 });
 
 
