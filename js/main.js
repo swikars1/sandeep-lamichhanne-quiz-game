@@ -61,7 +61,7 @@ $(document).ready(function () {
   var score = 0;
   var balls = 6;
   var timer = $('#timer')
-  var count = 20
+  var count = 60
   function write(count) {
     timer.text("Time: " + count)
 
@@ -118,7 +118,7 @@ $(document).ready(function () {
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count = 20;
+      count = 60;
       clearInterval(interval);
       decre(count);
       $('#fifty').show();
@@ -238,6 +238,7 @@ $(document).ready(function () {
                             </p>
                            </div>`);
         writeUserData(userId, first_name, last_name); //writing to firebase
+        // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
       } else {
         $('#root').append(`<div id="lastone" class="sandipbg2">
                            </div>`);

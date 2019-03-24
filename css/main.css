@@ -23,7 +23,7 @@ html, body{
 p,li,h1,h2,h3, button{
     color:white;
     font-family: ubuntu;
-}
+}  
 /* p {
     max-width: 500px;
     font-family: "Avenir";
@@ -53,20 +53,18 @@ ul, ol{
     background-repeat:   no-repeat;
     background-position: center center;     
 }
-#nextBall {
+#nextball {
+    left: 56%;
     position: absolute;
-    color: rgb(41, 40, 40);
-    font-size: 27px;
-    vertical-align: middle;
-    text-align: center;
-    box-sizing: border-box;
-    width: 129px;
-    border-radius: 11px;
-    box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
-    left: 54%;
-    top: 64%;
-    height: 41px;
-     progid:DXImageTransformMicrosoftgradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
+    color: rgb(236, 234, 234);
+    background-color: rgba(0, 0, 0, 0.58);
+    display: inline-block;
+    padding: 15px;
+    font-size: 23px;
+    border: 2px solid grey;
+    cursor: pointer;
+    border-radius: 39%;
+    bottom: 27%;
 }
 #nextball:hover{
     cursor: pointer;
@@ -237,7 +235,7 @@ ul, ol{
 #timer {
     position: absolute;
     z-index: 4;
-    top: 139.7%;
+    top: 189.7%;
     font-weight: 700;
     font-size: 42px;
     background: none;
@@ -249,27 +247,22 @@ ul, ol{
     /* border: 2px solid gray; */
     padding: 10px 0 10px 0;
     margin-top: 12px;
-    left: 37.5%;
+    left: 33.5%;
     text-align: center;
 }
-#nextball{
-    position: absolute;
-    color: rgb(41, 40, 40);
-    font-size: 27px;
-    vertical-align: middle;
-    text-align: center;
-    box-sizing: border-box;
-    width: 129px;
-    border-radius: 11px;
-    box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
-    left: 52%;
-    top: 67%;
-    z-index:4;
-    top: 67%;
-    height: 41px;
+
+
+
 }
 .sandipbg1{
-    background-image: url('../images/Post-01.png');
+    background-image: url(../images/Post-01.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    /* background-color: white; */
+    max-width: 990px;
+    left: 197px;
+    position: absolute;
+
     /* background-color:white; */
 
 }
@@ -291,34 +284,38 @@ ul, ol{
     margin-left: 47%;
     background-color: #1e7eee;
     position: absolute;
-    margin-top: 145px;
+    margin-top: 146px;
     font-size: 2rem;
     font-family: 'congFont';
 }
 .sandipbg2{
     background-image: url('../images/Post-02.png'); 
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    /* background-color: white; */
+    max-width: 990px;
+    left: 0px;
+    position: absolute;
 
 }
 .sandipbg2:before{
     content: "Had Fun!";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
-    margin-left: 34%;
     background-color: #354f98;
     position: absolute;
-    margin-top: 82px;
-    font-size: 3rem;
+    left: 38%;
+    top: -11%;
 }
 .sandipbg2:after{
     content: " Try Again ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
-    margin-left: 47%;
     background-color: #1e7eee;
     position: absolute;
-    margin-top: 145px;
-    font-size: 2rem;
     font-family: 'congFont';
+    top: -82px;
+    left: 214px;
 }
 .sandipbg3{
     /* background-image: url('../images/Post-03.png'); */
@@ -462,20 +459,18 @@ img#ball {
 }
 #fifty {
     position: absolute;
-    /* margin-left: 48%; */
     color: rgb(236, 234, 234);
     background-color: rgba(0, 0, 0, 0.58);
     display: inline-block;
-    /* padding: 2px; */
-    /* border-radius: 3px; */
-    top: 110%;
-    cursor: pointer;
+    bottom: 27%;
     padding: 15px;
     font-size: 23px;
     border: 2px solid grey;
     cursor: pointer;
     border-radius: 39%;
-    left: 31%;
+    left: 37%;
+    width: 80px;
+    text-align: center;
 }
 #fifty:hover {
     background-color: rgb(0, 0, 0);
@@ -533,41 +528,100 @@ img#helmet2 {
 
 #car {
     width: 300px;
-    right: 200px;
+    right: 116px;
     bottom: 20px;
     z-index: 4;
     position: absolute;
 }
 
-@media screen and (max-width:865px){
-    #answer-box{
-        width:640px;
-    }
-    #car{
-        width:250px;
-        right:111px;
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width:1050px){
     #fifty {
-        top: 106%;
-
-        padding: 15px;
-        font-size: 15px;
-        left: 29%;
+        position: absolute;
+    color: rgb(236, 234, 234);
+    background-color: rgba(0, 0, 0, 0.58);
+    display: inline-block;
+    bottom: 27%;
+    padding: 15px;
+    font-size: 23px;
+    border: 2px solid grey;
+    cursor: pointer;
+    border-radius: 39%;
+    left: 34%;
+    width: 80px;
+    text-align: center;
     }
     .sandipbg1,.sandipbg2,.sandipbg3{
         background-size: cover;
     }
+    #timer {
+        top: 215.7%;
+
+    }
+    #car {
+        width: 300px;
+        right: 50px;
+        bottom: 20px;
+        z-index: 4;
+        position: absolute;
+    }
 }
+/* @media screen and (max-width:725px){
+#car {
+    width: 300px;
+    right: -2px;
+    bottom: 20px;
+    z-index: 4;
+    position: absolute;
+}
+} */
 @media screen and (max-width:700px){
     .sandipbg1,.sandipbg2,.sandipbg3{
         background-size: cover;
         background-position: center left;
+        left:0;
+    }
+   /* #playscreen {
+    width: 110%;
+
+   } */
+   #quiz-canvas {
+    padding-top: 50px;
+    height: calc(100% - 50px);
+    background-image: url(../images/mainbg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+    #timer {
+        top: 153.7%;
+
+    }
+    #fifty {
+        background-color: rgba(0, 0, 0, 0.58);
+        display: inline-block;
+        bottom: 23%;
+        
+        left: 34%;
+        width: 80px;
+        
     }
     #car {
+        left: 443px;
         width: 211px;
-        right: 109px;
         bottom: 40px;
     }
     .topleftlogo {
@@ -593,6 +647,7 @@ img#helmet2 {
         transform: scaleX(-1);
         width: 81px;
     }
+    
     #ball2 {
         height: 23px;
         width: 24px;
@@ -610,13 +665,27 @@ img#helmet2 {
         width: 317px;
         top:40%;
     }
+    #nextball {
+        left: 52%;
+        position: absolute;
+        color: rgb(236, 234, 234);
+        background-color: rgba(0, 0, 0, 0.58);
+        display: inline-block;
+        padding: 15px;
+        font-size: 23px;
+        border: 2px solid grey;
+        cursor: pointer;
+        border-radius: 39%;
+        bottom: 23%;
+    }
+    
     
     
 }
 #ml2{
     width:200px;
 }
-@media screen and (max-width:525px){
+@media screen and (max-width:800px){
     .middlelogo{
         top:9%;
         width:230px;
@@ -625,8 +694,8 @@ img#helmet2 {
         top:2%;
     }
     #car {
-        width: 180px;
-        right: 63px;
+        width: 280px;
+        right: -3px;
     }
     .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
         margin-left: 11%;
@@ -638,111 +707,52 @@ img#helmet2 {
         margin-top: 209px;
         font-size: 1.4rem;
     }
-
-}
-
-@media screen and (max-width:480px){
-#helmet2{
-    display: none;
-}
-
-}
-
-
-@media screen and (max-width:390px){
-    img#playhelmet {
-        width: 93px;
-        top: 86px;
-        left: 179px;
-    }
-    img#bat {
-        right: 249px;
-        top: -32px;
-        width: 118px;
-    }
-    img#ball {
-        top: 116px;
-        left: 3px;
-        width: 29px;
-    }
-}
-
-@media screen and (max-width:1859px){
-    #nextball {
-        left: 54%;
-        top: 67%;
-    }
-}
-@media screen and (max-width:360px){
-    #nextball {
-        left: 54%;
-        top: 67%;
-    }
-    #answer-box {
-        width: 317px;
-        top: 33%;
-    }
-    #car {
-        width: 180px;
-        right: 5px;
-    }
     #ball2 {
-        top: 514px;
-        height: 23px;
-        width: 24px;
-        left: 73px;
-    }
-    .playPos {
-        transform: translate(-50%, -50%);
-        width: 262px;
-        height: 65px;
+        height: 36px;
         position: absolute;
-        top: 58%;
-        left: 50%;
-        z-index: 10;
+        width: 39px;
+        bottom: 114px;
+        left: 147px;
+    
     }
-    img#bat {
-        right: 216px;
-        top: -32px;
-        width: 118px;
+    img#helmet2 {
+        width: 121px;
+        position: absolute;
+        bottom: 80px;
+        left: 200px;
+
     }
-    #helmet{
-        left: 215px;
-    }
-    .sandipbg1:before, .sandipbg2:before, .sandipbg3:before{
-        margin-left: 11%;
-        margin-top: 162px;
-        font-size: 1.8rem;
-    }
-    .sandipbg1:after,.sandipbg2:after, .sandipbg3:after {
-        margin-left: 31%;
-        margin-top: 200px;
-        font-size: 1rem;
+    img#bat2 {
+        transform: scaleX(-1);
+        width: 139px;
+
+        position: absolute;
+        bottom: 90px;
     }
 
+}
+@media screen and (min-width:600px){
+    #playscreen {
+        width: 100%;
+    }
+}
 
-    #timer {
-        position: absolute;
-        z-index: 4;
-        top: 110.7%;
-        font-weight: 700;
-        font-size: 42px;
-        background: none;
-        /* border-radius: 50%; */
-        vertical-align: middle;
-        width: 12pc;
-        color: rgba(3, 37, 30, 0.411);
-        height: 30px;
-        /* border: 2px solid gray; */
-        padding: 10px 0 10px 0;
-        margin-top: 12px;
-        left: 17.5%;
-        text-align: center;
-    }
-    #fifty {
-        top: 103%;
-        padding: 15px;
-        font-size: 15px;
-        left: 21%;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+#tokennum {
+    background-color: blue;
+    position: absolute;
+    margin-left: 645px;
+    margin-top: 210px;
 }
