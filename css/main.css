@@ -300,7 +300,7 @@ ul, ol{
 
 }
 .sandipbg2:before{
-    content: "Try Again!";
+    content: "Had Fun!";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
     margin-left: 34%;
@@ -310,7 +310,7 @@ ul, ol{
     font-size: 3rem;
 }
 .sandipbg2:after{
-    content: " You win ";
+    content: " Try Again ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
     margin-left: 47%;

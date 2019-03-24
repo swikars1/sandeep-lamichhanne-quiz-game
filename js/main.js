@@ -233,7 +233,7 @@ $(document).ready(function () {
       $('#quiz-canvas').remove();
       if (score == 6) {
         $('#root').append(`<div id="lastone" class="sandipbg1">
-                            <p>
+                            <p id="tokennum">
                               Your token is token-${userId}
                             </p>
                            </div>`);
