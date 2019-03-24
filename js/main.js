@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var userId, first_name, last_name;
-  // $('#congP').hide();
+  $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
   var firebaseConfig = {
@@ -63,7 +63,7 @@ $(document).ready(function () {
   var timer = $('#timer')
   var count = 5
   function write(count) {
-    timer.text(count)
+    timer.text(`Time: ${count}`)
     
   }
   function decre(count) {
