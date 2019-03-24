@@ -205,85 +205,19 @@ $(document).ready(function () {
   }
 
   function checkAnswer(answer, checkId) {
-
+    
     answerId = "opt" + answer;
-
     $(".sandipScreen").show();
 
     $(".options > li").css("pointer-events", "none");
-    // cdpause();
     if (checkId == answerId) {
-      // correct option
       score++;
       $("#" + checkId).addClass("correctOpt");
-      switch (questionCounter) {
-        case 0:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg2 sandipbg3')
-            .addClass('sandipbg1')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-        case 1:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg1 sandipbg3')
-            .addClass('sandipbg2')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-        case 2:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg2 sandipbg1')
-            .addClass('sandipbg3')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-        case 3:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg2 sandipbg3')
-            .addClass('sandipbg1')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-        case 4:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg1 sandipbg3')
-            .addClass('sandipbg2')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-        case 5:
-          $(".sandipScreen")
-            .css('opacity', '0')
-            .removeClass('sandipbg2 sandipbg3')
-            .addClass('sandipbg1')
-            .animate({
-              'opacity': '1'
-            }, 1000, "linear");
-          break;
-      }
       setScore(score);
     } else {
-      // incorrect option
-
-      $('#incor').addClass('slideleft');
       $("#" + checkId).addClass("incorrectOpt");
-      $(".sandipScreen")
-        .removeClass('sandipbg1 sandipbg2 sandipbg3')
     }
   }
-
-
 
   function setScore(score) {
     $("#score").text(`Score: ${score}`);

@@ -229,11 +229,11 @@ ul, ol{
     background-size:   80% 100%;
 }
 .sandipbg1{
-    background-image: url('../images/Post-01.png');
+    /* background-image: url('../images/Post-01.png'); */
     background-color:white;
 
 }
-.sandipbg1:before{
+/* .sandipbg1:before{
     content: "Congratulation ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
@@ -243,8 +243,8 @@ ul, ol{
     margin-top: 82px;
     font-size: 3rem;
     font-family: 'congFont';
-}
-.sandipbg1:after{
+} */
+/* .sandipbg1:after{
     content: " You win ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
@@ -254,13 +254,13 @@ ul, ol{
     margin-top: 145px;
     font-size: 2rem;
     font-family: 'congFont';
-}
+} */
 .sandipbg2{
-    background-image: url('../images/Post-02.png'); 
+    /* background-image: url('../images/Post-02.png');  */
     background-color:white;
 
 }
-.sandipbg2:before{
+/* .sandipbg2:before{
     content: "Congratulation ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
@@ -280,13 +280,13 @@ ul, ol{
     margin-top: 145px;
     font-size: 2rem;
     font-family: 'congFont';
-}
+} */
 .sandipbg3{
-    background-image: url('../images/Post-03.png');
+    /* background-image: url('../images/Post-03.png'); */
     background-color:white;
 
 }
-.sandipbg3:before{
+/* .sandipbg3:before{
     content: "Congratulation ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
@@ -307,7 +307,7 @@ ul, ol{
     margin-top: 145px;
     font-size: 2rem;
     font-family: 'congFont';
-}
+} */
 img#bat {
     position: absolute;
     right: 249px;
