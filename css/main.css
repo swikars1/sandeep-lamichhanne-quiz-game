@@ -53,7 +53,22 @@ ul, ol{
     background-repeat:   no-repeat;
     background-position: center center;     
 }
+#nextBall {
+    position: relative;
+    color: rgb(41, 40, 40);
+    font-size: 27px;
+    vertical-align: middle;
+    text-align: center;
+    box-sizing: border-box;
+    width: 129px;
+    border-radius: 11px;
+    
+    box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
+    left: 54%;
+    top: 69%;
+    height: 41px;
 
+}
 #scoreboard{
     height:100px;
     background-color:rgba(189, 255, 237, 0.514)
