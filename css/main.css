@@ -251,7 +251,8 @@ ul, ol{
     border-radius: 50%;
     vertical-align: middle;
     width: 50px;
-    color: black;
+    color: #304684;
+    font-size:23px;
     height: 30px;
     border: 2px solid gray;
     padding: 10px 0 10px 0;
@@ -387,11 +388,11 @@ img#ball {
     /* animation: slideleft 1s cubic-bezier(.17,.67,.78,.3) forwards; */
 }
 .correctOpt{
-    background:rgb(129, 160, 129) !important;
+    background:rgb(206, 206, 206);
     color: white !important;
 }
 .incorrectOpt{
-    background:rgb(129, 160, 129) !important;
+    background:rgb(206, 206, 206);
     color: white !important;
 } 
 #scoreboard{

@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  $('#congP').hide();
+  var userId, first_name, last_name;
+  // $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
   var firebaseConfig = {
@@ -40,7 +41,8 @@ $(document).ready(function () {
       .ref("winners/" + userId)
       .set({
           first_name: first_name,
-          last_name: last_name
+          last_name: last_name,
+          tokenId: "token-"+userId
         },
         function (error) {
           if (error) {
@@ -116,7 +118,8 @@ $(document).ready(function () {
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count =5;
+      count = 5;
+      $('#timer').text(count)
       clearInterval(interval);
       decre(count);
       $('#fifty').show(); 
@@ -226,11 +229,11 @@ $(document).ready(function () {
   function quizComplete() {
     $('#answer-box').fadeOut(800);
     $('#nextball').fadeOut(800, function () {
-      $('#congP').text(`Your score is: ${score}`);
       $('#timer').remove();
       $('#nextball').remove();
       if (score == 6) {
-        writeUserData("fireid2", "swiakr", "SHARMNA"); //writing to firebase
+        $('#congP').text(`You have completed the quiz. Your token is token-${userId}`).show();
+        writeUserData(userId , first_name, last_name); //writing to firebase
       }
 
       $('#playAgain').text(`Try Again`);
@@ -264,13 +267,13 @@ window.fbAsyncInit = function () {
   });
   FB.getLoginStatus(function (response) {
     if (response.status === "connected") {
-      document.getElementById("status").innerHTML = "We are connected.";
+      // document.getElementById("status").innerHTML = "We are connected.";
       document.getElementById("login").style.visibility = "hidden";
     } else if (response.status === "not_authorized") {
-      document.getElementById("status").innerHTML = "We are not logged in.";
+      // document.getElementById("status").innerHTML = "We are not logged in.";
     } else {
-      document.getElementById("status").innerHTML =
-        "You are not logged into Facebook.";
+      // document.getElementById("status").innerHTML =
+        // "You are not logged into Facebook.";
     }
   });
 };
@@ -312,7 +315,9 @@ $("#button").on("click", function getInfo() {
   }, function (
     response
   ) {
-    var userId = (document.getElementById("status").innerHTML = response.id);
+     userId = response.id;
+     first_name = response.first_name;
+     last_name = response.last_name;
   });
 });
 
