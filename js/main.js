@@ -59,9 +59,9 @@ $(document).ready(function () {
   var score = 0;
   var balls = 6;
   var timer = $('#timer')
-  var count = 5
+  var count = 20
   function write(count) {
-    timer.text(count)
+    timer.text("Time: " + count)
     
   }
   function decre(count) {
@@ -116,7 +116,7 @@ $(document).ready(function () {
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count =5;
+      count =20;
       clearInterval(interval);
       decre(count);
       $('#fifty').show(); 
