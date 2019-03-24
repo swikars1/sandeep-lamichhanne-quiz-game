@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var userId, first_name, last_name;
   $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
@@ -39,9 +40,10 @@ $(document).ready(function () {
       .database()
       .ref("winners/" + userId)
       .set({
-          first_name: first_name,
-          last_name: last_name
-        },
+        first_name: first_name,
+        last_name: last_name,
+        tokenId: "token-" + userId
+      },
         function (error) {
           if (error) {
             // The write failed...
@@ -62,20 +64,20 @@ $(document).ready(function () {
   var count = 20
   function write(count) {
     timer.text("Time: " + count)
-    
+
   }
   function decre(count) {
-      interval = setInterval(() => {
+    interval = setInterval(() => {
       if (count >= 0) {
         write(count)
         count--
       } else {
-          $(".options > li")
+        $(".options > li")
           .css({
             "pointer-events": "none",
           });
-          $("#nextball").show(); 
-          $('#fifty').hide(); 
+        $("#nextball").show();
+        $('#fifty').hide();
         // resetcount();
         //TODO:
         //timeup() function
@@ -109,21 +111,21 @@ $(document).ready(function () {
       cddisplay();
   };*/
 
-  
+
   //start
   startQuestions();
 
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count =20;
+      count = 20;
       clearInterval(interval);
       decre(count);
-      $('#fifty').show(); 
+      $('#fifty').show();
       $(".options > li")
-      .css({
-        "pointer-events": "unset"
-      });
+        .css({
+          "pointer-events": "unset"
+        });
       $("#nextball").hide();
       if (questionCounter < 5) {
         questionCounter++;
@@ -144,7 +146,7 @@ $(document).ready(function () {
   }
 
   function setQuestionOptions(questionData, questionPos) {
-    $('#answer-box').attr('data-content', `Round: ${questionCounter+1}`);
+    $('#answer-box').attr('data-content', `Round: ${questionCounter + 1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
       .css({
@@ -167,7 +169,7 @@ $(document).ready(function () {
       .off("click")
       .on("click", function () {
         // cdpause();
-    $("#nextball").show();
+        $("#nextball").show();
 
         clearInterval(interval)
         checkAnswer(answer, $(this)[0].id);
@@ -201,7 +203,7 @@ $(document).ready(function () {
   }
 
   function checkAnswer(answer, checkId) {
-    
+
     answerId = "opt" + answer;
 
     $(".options > li").css("pointer-events", "none");
@@ -226,11 +228,19 @@ $(document).ready(function () {
   function quizComplete() {
     $('#answer-box').fadeOut(800);
     $('#nextball').fadeOut(800, function () {
-      $('#congP').text(`Your score is: ${score}`);
       $('#timer').remove();
       $('#nextball').remove();
+      $('#quiz-canvas').remove();
       if (score == 6) {
-        writeUserData("fireid2", "swiakr", "SHARMNA"); //writing to firebase
+        $('#root').append(`<div id="lastone" class="sandipbg1">
+                            <p id="tokennum">
+                              Your token is token-${userId}
+                            </p>
+                           </div>`);
+        writeUserData(userId, first_name, last_name); //writing to firebase
+      } else {
+        $('#root').append(`<div id="lastone" class="sandipbg2">
+                           </div>`);
       }
 
       $('#playAgain').text(`Try Again`);
@@ -264,13 +274,13 @@ window.fbAsyncInit = function () {
   });
   FB.getLoginStatus(function (response) {
     if (response.status === "connected") {
-      document.getElementById("status").innerHTML = "We are connected.";
+      // document.getElementById("status").innerHTML = "We are connected.";
       document.getElementById("login").style.visibility = "hidden";
     } else if (response.status === "not_authorized") {
-      document.getElementById("status").innerHTML = "We are not logged in.";
+      // document.getElementById("status").innerHTML = "We are not logged in.";
     } else {
-      document.getElementById("status").innerHTML =
-        "You are not logged into Facebook.";
+      // document.getElementById("status").innerHTML =
+      // "You are not logged into Facebook.";
     }
   });
 };
@@ -312,8 +322,10 @@ $("#button").on("click", function getInfo() {
   }, function (
     response
   ) {
-    var userId = (document.getElementById("status").innerHTML = response.id);
-  });
+      userId = response.id;
+      first_name = response.first_name;
+      last_name = response.last_name;
+    });
 });
 
 

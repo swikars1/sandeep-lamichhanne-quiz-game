@@ -264,15 +264,17 @@ ul, ol{
     box-shadow: 1px -2px 5px 1px rgb(41, 40, 40);
     left: 52%;
     top: 67%;
+    z-index:4;
+    top: 67%;
     height: 41px;
 }
 .sandipbg1{
-    /* background-image: url('../images/Post-01.png'); */
-    background-color:white;
+    background-image: url('../images/Post-01.png');
+    /* background-color:white; */
 
 }
-/* .sandipbg1:before{
-    content: "Congratulation ";
+.sandipbg1:before{
+    content: "Congratulation";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
     margin-left: 34%;
@@ -281,8 +283,8 @@ ul, ol{
     margin-top: 82px;
     font-size: 3rem;
     font-family: 'congFont';
-} */
-/* .sandipbg1:after{
+}
+.sandipbg1:after{
     content: " You win ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
@@ -292,14 +294,13 @@ ul, ol{
     margin-top: 145px;
     font-size: 2rem;
     font-family: 'congFont';
-} */
+}
 .sandipbg2{
-    /* background-image: url('../images/Post-02.png');  */
-    background-color:white;
+    background-image: url('../images/Post-02.png'); 
 
 }
-/* .sandipbg2:before{
-    content: "Congratulation ";
+.sandipbg2:before{
+    content: "Had Fun!";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
     margin-left: 34%;
@@ -309,7 +310,7 @@ ul, ol{
     font-size: 3rem;
 }
 .sandipbg2:after{
-    content: " You win ";
+    content: " Try Again ";
     color: rgb(243, 233, 233);
     border: 1px solid blue;
     margin-left: 47%;
@@ -318,7 +319,7 @@ ul, ol{
     margin-top: 145px;
     font-size: 2rem;
     font-family: 'congFont';
-} */
+}
 .sandipbg3{
     /* background-image: url('../images/Post-03.png'); */
     background-color:white;
@@ -370,7 +371,13 @@ img#playhelmet {
     top:2%;
     width:45px;
 }
-
+#lastone{
+    padding: 0;
+    width: 100vw;
+    /* background-color: red; */
+    height: 100vh;
+    margin: 0;
+}
 img#ball {
     position: absolute;
     top: 152px;
@@ -379,12 +386,12 @@ img#ball {
     /* animation: slideleft 1s cubic-bezier(.17,.67,.78,.3) forwards; */
 }
 .correctOpt{
-    background:rgb(129, 160, 129) !important;
-    color: white !important;
+    background:rgb(173, 173, 173);
+    color: black !important;
 }
 .incorrectOpt{
-    background:rgb(129, 160, 129) !important;
-    color: white !important;
+    background:rgb(173, 173, 173);
+    color: black !important;
 } 
 #scoreboard{
     display: grid;
@@ -407,6 +414,7 @@ img#ball {
     left: 50%;
     position: relative;
     border-radius: 40px;
+    z-index: 4;
     height: max-content;
     padding-bottom: 8px;
     margin-top:30px;
