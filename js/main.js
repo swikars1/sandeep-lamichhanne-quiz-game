@@ -70,29 +70,18 @@ $(document).ready(function () {
         write(count)
         count--
       } else {
-        $(".options > li")
-        .css({
-          "pointer-events": "none",
-        });
-        
+          $(".options > li")
+          .css({
+            "pointer-events": "none",
+          });
+          $("#nextball").show(); 
+          $('#fifty').hide(); 
         // resetcount();
         //TODO:
         //timeup() function
       }
     }, 1000);
   }
-
-  function cleartimer() {
-    clearInterval();
-  }
-
-
-
-  function cddisplay() {
-    // displays time in span
-    document.getElementById('time').innerHTML = count;
-  };
-
 
 
   /*function countdown() {a
@@ -126,11 +115,16 @@ $(document).ready(function () {
 
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
-    $(".sandipScreen").click(() => {
+    $("#nextball").click(() => {
       count =5;
-      clearInterval();
+      clearInterval(interval);
       decre(count);
-
+      $('#fifty').show(); 
+      $(".options > li")
+      .css({
+        "pointer-events": "unset"
+      });
+      $("#nextball").hide();
       if (questionCounter < 5) {
         questionCounter++;
         getFromJson(requestURL, questionCounter);
@@ -142,8 +136,8 @@ $(document).ready(function () {
   }
 
   function getFromJson(requestURL, questionPos) {
-    $(".sandipScreen").hide();
     $.getJSON(requestURL, function (questionData) {
+      $("#nextball").hide();
       setQuestionOptions(questionData, questionPos);
 
     });
@@ -173,6 +167,8 @@ $(document).ready(function () {
       .off("click")
       .on("click", function () {
         // cdpause();
+    $("#nextball").show();
+
         clearInterval(interval)
         checkAnswer(answer, $(this)[0].id);
       });
@@ -207,11 +203,11 @@ $(document).ready(function () {
   function checkAnswer(answer, checkId) {
     
     answerId = "opt" + answer;
-    $(".sandipScreen").show();
 
     $(".options > li").css("pointer-events", "none");
     if (checkId == answerId) {
       score++;
+
       $("#" + checkId).addClass("correctOpt");
       setScore(score);
     } else {
@@ -229,9 +225,10 @@ $(document).ready(function () {
 
   function quizComplete() {
     $('#answer-box').fadeOut(800);
-    $('.sandipScreen').fadeOut(800, function () {
+    $('#nextball').fadeOut(800, function () {
       $('#congP').text(`Your score is: ${score}`);
-
+      $('#timer').remove();
+      $('#nextball').remove();
       if (score == 6) {
         writeUserData("fireid2", "swiakr", "SHARMNA"); //writing to firebase
       }
