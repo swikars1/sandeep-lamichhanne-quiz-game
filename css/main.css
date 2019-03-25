@@ -5,7 +5,8 @@
   @font-face {
     font-family: congFont;
     src: url("../font/Nilland-Black.ttf");
-  }@font-face {
+  }
+  @font-face {
     font-family: congFont;
     src: url("../font/Nilland-Black.ttf");
   }
@@ -257,21 +258,17 @@ ul, ol{
     float: left;
     width: 12pc;
     margin: 16px 34px;
-    color: rgba(1, 102, 163, 0.6);
+    color: rgba(1, 102, 163);
     height: 30px;
     text-align: center;
 }
 
 .sandipbg1{
     background-image: url(../images/Post-01.png);
-    background-repeat: no-repeat, repeat;
-    background-size: cover;
-    /* background-color: white; */
-    max-width: 990px;
-    left: 197px;
-    position: absolute;
-
-    /* background-color:white; */
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    margin: 0;
+    background-position-x: center;
 
 }
 .sandipbg1:before{
@@ -298,12 +295,14 @@ ul, ol{
 }
 .sandipbg2{
     background-image: url(../images/Post-02.png);
-    position: absolute;
-    
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 70% 100%;
     margin: 0;
+    background-position-x: center;
 
+}
+.sandipbg2:hover{
+    cursor: pointer;
 }
 .sandipbg2:before{
     content: "Had Fun!";
@@ -555,40 +554,17 @@ img#helmet2 {
     position: absolute;
 }
 
-
-
-
-
-
-
-
-
-
-@media screen and (max-width:1326px){
-    .toprightlogo {
-        position: absolute;
-        right: 6%;
-        top: 2%;
-        width: 45px;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-
 @media screen and (max-width:990px){
-
-        #car {
-            width: 300px;
-            right: 60px;
-            bottom: 20px;
-            z-index: 4;
-            position: absolute;
-        }
-
+    #car {
+        width: 300px;
+        right: 60px;
+        bottom: 20px;
+        z-index: 4;
+        position: absolute;
+    }
 }
-@media screen and (max-width:896px){
 
+@media screen and (max-width:896px){
     #car {
         width: 300px;
         right: 26px;
@@ -596,7 +572,11 @@ img#helmet2 {
         z-index: 4;
         position: absolute;
     }
+    .sandipbg1,.sandipbg2{
+        background-size: cover;
+        background-position: left;
 
+    }
 }
 
 @media screen and (max-width:865px){
@@ -683,7 +663,7 @@ img#helmet2 {
     }
     #answer-box {
         width: 317px;
-        top:40%;
+        top:33%;
     }
     
     

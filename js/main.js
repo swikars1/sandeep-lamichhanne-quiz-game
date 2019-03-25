@@ -61,7 +61,7 @@ $(document).ready(function () {
   var score = 0;
   var balls = 6;
   var timer = $('#timer')
-  var count = 60
+  var count = 20
   function write(count) {
     timer.text("Time: " + count)
 
@@ -118,7 +118,7 @@ $(document).ready(function () {
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#nextball").click(() => {
-      count = 60;
+      count = 20;
       clearInterval(interval);
       decre(count);
       $('#fifty').show();
@@ -244,7 +244,9 @@ $(document).ready(function () {
         $('#root').append(`<div id="lastone" class="sandipbg2">
                            </div>`);
       }
-
+      $('.sandipbg2').click(()=>{
+        location.reload();
+      })
       $('#playAgain').text(`Try Again`);
       $('#playAgain').click(function () {
         location.reload();
