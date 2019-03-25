@@ -55,35 +55,31 @@ ul, ol{
     background-position: center center;     
 }
 #nextball {
-    transform: translate(-50%,-50%);
     position: absolute;
-    color: rgb(55, 58, 61);
-    background: rgba(210,255,82,1);
-    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(79%, rgba(255,255,255,1)), color-stop(100%, rgba(145,232,66,1)));
-    background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
+    color: rgb(28, 43, 82);
+    font-weight: 600;
     display: block;
     padding: 15px;
-    font-size: 23px;
-    border: 2px solid rgba(190, 193, 196, 0.788);
+    font-size: 24px;
+    /* border: 2px solid rgba(190, 193, 196, 0.788); */
     cursor: pointer;
-    border-radius: 50%;
-    height: 50px;
+    /* border-radius: 50%; */
+    /* height: 50px; */
     top: 76%;
+    font-family: 'congFont';
+
     left: 50%;
-    width: 55px;
+    /* width: 55px; */
     text-align: center;
     transform: translate(-50%, -50%);
-    -webkit-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
-    box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
+    text-transform: uppercase;
+
 }
 #nextball:hover{
     cursor: pointer;
+    filter:brightness(110%);
+    -webkit-filter:brightness(110%);
+    -moz-filter:brightness(110%);
 }
 #nextball:active{
     cursor: pointer;
@@ -223,6 +219,13 @@ ul, ol{
     height: auto;
     transform: translateX(-50%);
 }
+.mainButton{
+    background-image:    url('../images/play.png');
+    background-size: 100% 100%;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
+    width:150px;
+}
 #playscreen{
     position: absolute;
     height:100%;
@@ -269,7 +272,10 @@ ul, ol{
     background-size: 70% 100%;
     margin: 0;
     background-position-x: center;
-
+    pointer-events: none; 
+}
+.sandipbg1:hover{
+    cursor: pointer;
 }
 .sandipbg1:before{
     content: "Congratulation";
@@ -281,17 +287,22 @@ ul, ol{
     margin-top: 82px;
     font-size: 3rem;
     font-family: 'congFont';
+    pointer-events: none;
 }
 .sandipbg1:after{
-    content: " You win ";
-    color: rgb(243, 233, 233);
-    border: 1px solid blue;
-    margin-left: 47%;
-    background-color: #1e7eee;
+    content: " Play Again ";
+    color: rgb(28, 43, 82); 
+    background-image:    url('../images/main.png');
+    background-size: 100% 100%;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
     position: absolute;
-    margin-top: 146px;
-    font-size: 2rem;
     font-family: 'congFont';
+    top: 144px;
+    left: 45%;
+    font-size: 1.5rem;
+    padding:8px;
+    pointer-events: auto; 
 }
 .sandipbg2{
     background-image: url(../images/Post-02.png);
@@ -299,7 +310,7 @@ ul, ol{
     background-size: 70% 100%;
     margin: 0;
     background-position-x: center;
-
+    pointer-events: none;
 }
 .sandipbg2:hover{
     cursor: pointer;
@@ -313,17 +324,22 @@ ul, ol{
     left: 38%;
     top: 10%;
     font-size: 3rem;
+    pointer-events: none;
 }
 .sandipbg2:after{
-    content: " Try Again ";
-    color: rgb(243, 233, 233);
-    border: 1px solid blue;
-    background-color: #1e7eee;
+    content: "Try Again";
+    color: rgb(28, 43, 82); 
+    background-image:    url('../images/main.png');
+    background-size: 100% 100%;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
     position: absolute;
     font-family: 'congFont';
-    top: 124px;
-    left: 50%;
+    top: 133px;
+    left: 45%;
     font-size: 1.5rem;
+    padding:8px;
+    pointer-events: auto;   
 }
 .sandipbg3{
     /* background-image: url('../images/Post-03.png'); */
@@ -468,29 +484,22 @@ img#ball {
 #fifty {
     position: absolute;
     color: rgb(55, 58, 61);
-    background: rgba(210,255,82,1);
-    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(79%, rgba(255,255,255,1)), color-stop(100%, rgba(145,232,66,1)));
-    background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
     display: block;
     padding: 15px 15px 15px 15px;
-    font-size: 23px;
-    border: 2px solid rgba(190, 193, 196, 0.788);
+    font-size: 24px;
+    /* border: 2px solid rgba(190, 193, 196, 0.788); */
     cursor: pointer;
-    border-radius: 50%;
-    height: 55px;
+    color: rgb(28, 43, 82); 
+    font-weight: 600;
+    /* border-radius: 50%; */
+    /* height: 55px; */
     top: 76%;
     left: 50%;
-    width: 60px;
+    /* width: 60px; */
+    font-family: 'congFont';
     text-align: center;
+    text-transform: uppercase;
     transform: translate(-50%, -50%);
-    -webkit-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
-    box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
 }
 #fifty:hover {
     /* background-color: rgb(0, 0, 0); */
@@ -543,8 +552,15 @@ img#helmet2 {
 @keyframes ballhit{
     100%{
         transform: scale(.5)translate(1874%, -994%);
-}
     }
+}
+
+.mainButton{
+    background-image:    url('../images/main.png');
+    background-size: 100% 100%;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
 
 #car {
     width: 300px;

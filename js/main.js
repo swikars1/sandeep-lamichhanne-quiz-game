@@ -246,7 +246,10 @@ $(document).ready(function () {
       }
       $('.sandipbg2').click(()=>{
         location.reload();
-      })
+      });
+      $('.sandipbg1').click(()=>{
+        location.reload();
+      });
       $('#playAgain').text(`Try Again`);
       $('#playAgain').click(function () {
         location.reload();
