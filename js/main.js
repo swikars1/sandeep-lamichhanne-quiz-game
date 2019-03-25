@@ -170,6 +170,7 @@ $(document).ready(function () {
       .on("click", function () {
         // cdpause();
         $("#nextball").show();
+        $('#fifty').hide();
 
         clearInterval(interval)
         checkAnswer(answer, $(this)[0].id);

@@ -54,18 +54,32 @@ ul, ol{
     background-position: center center;     
 }
 #nextball {
-    right: 37%;
+    transform: translate(-50%,-50%);
     position: absolute;
-    color: rgb(236, 234, 234);
-    background-color: rgba(0, 0, 0, 0.58);
+    color: rgb(55, 58, 61);
+    background: rgba(210,255,82,1);
+    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(79%, rgba(255,255,255,1)), color-stop(100%, rgba(145,232,66,1)));
+    background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
     display: block;
     padding: 15px;
     font-size: 23px;
-    border: 2px solid grey;
+    border: 2px solid rgba(190, 193, 196, 0.788);
     cursor: pointer;
-    border-radius: 39%;
-    bottom: 27%;
-    
+    border-radius: 50%;
+    height: 50px;
+    top: 76%;
+    left: 50%;
+    width: 55px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
+    box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
 }
 #nextball:hover{
     cursor: pointer;
@@ -225,6 +239,7 @@ ul, ol{
     left: 3%;
     width: 122px;
     top: 14%;
+    float:left;
 }
 #foot {
     width: 100%;
@@ -234,26 +249,18 @@ ul, ol{
     background-color: white;
 }
 #timer {
-    position: absolute;
-    z-index: 4;
-    top: 189.7%;
+    position: relative;
     font-weight: 700;
-    font-size: 42px;
+    font-size: 30px;
     background: none;
-    /* border-radius: 50%; */
     vertical-align: middle;
+    float: left;
     width: 12pc;
-    color: rgba(3, 37, 30, 0.411);
+    margin: 16px 34px;
+    color: rgba(1, 102, 163, 0.6);
     height: 30px;
-    /* border: 2px solid gray; */
-    padding: 10px 0 10px 0;
-    margin-top: 12px;
-    left: 33.5%;
     text-align: center;
 }
-
-
-
 
 .sandipbg1{
     background-image: url(../images/Post-01.png);
@@ -385,11 +392,11 @@ img#ball {
     /* animation: slideleft 1s cubic-bezier(.17,.67,.78,.3) forwards; */
 }
 .correctOpt{
-    background:rgb(173, 173, 173);
+    background:rgb(173, 173, 173)!important;
     color: black !important;
 }
 .incorrectOpt{
-    background:rgb(173, 173, 173);
+    background:rgb(173, 173, 173)!important;
     color: black !important;
 } 
 #scoreboard{
@@ -461,22 +468,34 @@ img#ball {
 }
 #fifty {
     position: absolute;
-    color: rgb(236, 234, 234);
-    background-color: rgba(0, 0, 0, 0.58);
-    display: inline-block;
-    bottom: 27%;
-    padding: 15px;
+    color: rgb(55, 58, 61);
+    background: rgba(210,255,82,1);
+    background: -moz-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(210,255,82,1)), color-stop(79%, rgba(255,255,255,1)), color-stop(100%, rgba(145,232,66,1)));
+    background: -webkit-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -o-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: -ms-linear-gradient(left, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    background: linear-gradient(to right, rgba(210,255,82,1) 0%, rgba(255,255,255,1) 79%, rgba(145,232,66,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
+    display: block;
+    padding: 15px 15px 15px 15px;
     font-size: 23px;
-    border: 2px solid grey;
+    border: 2px solid rgba(190, 193, 196, 0.788);
     cursor: pointer;
-    border-radius: 39%;
-    left: 37%;
-    width: 80px;
+    border-radius: 50%;
+    height: 55px;
+    top: 76%;
+    left: 50%;
+    width: 60px;
     text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
+    box-shadow: 4px -4px 31px -1px rgba(0,0,0,0.75);
 }
 #fifty:hover {
-    background-color: rgb(0, 0, 0);
-    color: white;
+    /* background-color: rgb(0, 0, 0); */
+    color: rgb(58, 53, 53);
 }
 
 .bathit{
@@ -545,6 +564,41 @@ img#helmet2 {
 
 
 
+@media screen and (max-width:1326px){
+    .toprightlogo {
+        position: absolute;
+        right: 6%;
+        top: 2%;
+        width: 45px;
+    }
+    .sandipbg1,.sandipbg2,.sandipbg3{
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width:990px){
+
+        #car {
+            width: 300px;
+            right: 60px;
+            bottom: 20px;
+            z-index: 4;
+            position: absolute;
+        }
+
+}
+@media screen and (max-width:896px){
+
+    #car {
+        width: 300px;
+        right: 26px;
+        bottom: 20px;
+        z-index: 4;
+        position: absolute;
+    }
+
+}
+
 @media screen and (max-width:865px){
     #answer-box{
         width:640px;
@@ -554,168 +608,8 @@ img#helmet2 {
         right:111px;
     }
 }
-@media screen and (max-width:1326px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
-        .toprightlogo {
-            position: absolute;
-            right: 6%;
-            top: 2%;
-            width: 45px;
-        }
-        #nextball {
-            bottom: 21%;
-            left: 54%;
-            right: 37%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 162% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-@media screen and (max-width:1286px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
-        #nextball {
-            bottom: 21%;
-            left: 54%;
-            right: 36%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 162% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-@media screen and (max-width:1128px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
-        #nextball {
-            bottom: 21%;
-            
-            right: 34%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 162% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-@media screen and (max-width:990px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
-        #car {
-            width: 300px;
-            right: 60px;
-            bottom: 20px;
-            z-index: 4;
-            position: absolute;
-        }
-        #nextball {
-            bottom: 21%;
-            
-            right: 33%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 162% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-@media screen and (max-width:896px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
-        #car {
-            width: 300px;
-            right: 26px;
-            bottom: 20px;
-            z-index: 4;
-            position: absolute;
-        }
-        #nextball {
-            bottom: 21%;
-            
-            right: 32%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 162% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
-}
-
 
 @media screen and (max-width:768px){
-    #fifty {
-        bottom: 21%;
-        left: 37%;
-        }
         img#bat2 {
             transform: scaleX(-1);
             width: 122px;
@@ -742,52 +636,10 @@ img#helmet2 {
             z-index: 4;
             position: absolute;
         }
-        #nextball {
-            bottom: 21%;
-            
-            right: 29%;
-            position: absolute;
-            color: rgb(236, 234, 234);
-            background-color: rgba(0, 0, 0, 0.58);
-            display: block;
-            padding: 14px;
-            font-size: 22px;
-            border: 2px solid grey;
-            cursor: pointer;
-            border-radius: 39%;
-            
-        }
-    #timer {
-        top: 101% !important;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
+
 }
 
 @media screen and (max-width:700px){
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-        background-position: center left;
-    }
-    #fifty {
-        bottom: 14%;
-        left: 37%;
-    }
-    #nextball {
-        right: 204px;
-        bottom: 14%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 22px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        
-    }
     #car {
         width: 211px;
         right: 15px;
@@ -840,19 +692,6 @@ img#helmet2 {
     width:200px;
 }
 @media screen and (max-width:694px){
-    #fifty {
-        left: 30%;
-        bottom: 15%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 17px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        }
         img#bat2 {
             transform: scaleX(-1);
             width: 122px;
@@ -880,42 +719,9 @@ img#helmet2 {
             z-index: 4;
             position: absolute;
         }
-        #nextball {
-        bottom: 15%;
-        right: 30%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-            
-        }
-    #timer {
-        top: 119% !important;
-        left: 66px;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
+
 }
 @media screen and (max-width:618px){
-    #fifty {
-        left: 30%;
-        bottom: 15%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 17px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        }
         img#bat2 {
             transform: scaleX(-1);
             width: 100px;
@@ -943,42 +749,9 @@ img#helmet2 {
             z-index: 4;
             position: absolute;
         }
-        #nextball {
-        bottom: 15%;
-        right: 28%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-            
-        }
-    #timer {
-        top: 119% !important;
-        left: 66px;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
 }
 @media screen and (max-width:578px){
-    #fifty {
-        left: 30%;
-        bottom: 15%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 17px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        }
+
         img#bat2 {
             transform: scaleX(-1);
             width: 100px;
@@ -1006,27 +779,6 @@ img#helmet2 {
             z-index: 4;
             position: absolute;
         }
-        #nextball {
-        bottom: 15%;
-        right: 28%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-            
-        }
-    #timer {
-        top: 119% !important;
-        left: 66px;
-    }
-    .sandipbg1,.sandipbg2,.sandipbg3{
-        background-size: cover;
-    }
 }
 @media screen and (max-width:525px){
     .middlelogo{
@@ -1039,19 +791,6 @@ img#helmet2 {
     #car {
         width: 179px;
         right: 3px;
-    }
-    #nextball {
-        bottom: 15%;
-        right: 26%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 14px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
     }
     .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
         margin-left: 11%;
@@ -1093,19 +832,6 @@ img#helmet2 {
         right: 3px;
         display: none;
     }
-    #nextball {
-        bottom: 15%;
-        right: 22%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        padding: 13px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        
-    }
     .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
         margin-left: 11%;
         margin-top: 162px;
@@ -1134,19 +860,7 @@ img#helmet2 {
     right: 3px;
     display: none;
 }
-#nextball {
-    bottom: 15%;
-    right: 8%;
-    position: absolute;
-    color: rgb(236, 234, 234);
-    background-color: rgba(0, 0, 0, 0.58);
-    padding: 13px;
-    font-size: 18px;
-    border: 2px solid grey;
-    cursor: pointer;
-    border-radius: 39%;
-    left: 270px;
-}
+
 .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
     margin-left: 11%;
     margin-top: 162px;
@@ -1166,17 +880,6 @@ img#helmet2 {
         top: 86px;
         left: 179px;
     }
-    #nextball {
-        bottom: 15%;
-        right: 8%;
-        
-        padding: 13px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        left: 250px;
-    }
     img#bat {
         right: 249px;
         top: -32px;
@@ -1194,23 +897,6 @@ img#helmet2 {
         top: 86px;
         left: 179px;
     }
-    #timer {
-        top: 170% !important;
-        left: 66px;
-    }
-    #fifty {
-        left: 18%;
-        bottom: 27%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        display: block;
-        padding: 15px;
-        font-size: 21px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-    }
     #ball2 {
         height: 24px;
         position: absolute;
@@ -1224,17 +910,6 @@ img#helmet2 {
         position: absolute;
         bottom: 79px;
     }
-    #nextball {
-        bottom: 27%;
-        right: 19%;
-        padding: 14px;
-        font-size: 23px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        left: 209px;
-        top: 544px;
-    }
     img#bat {
         right: 249px;
         top: -32px;
@@ -1246,16 +921,12 @@ img#helmet2 {
         width: 29px;
     }
 }
-@media screen and (max-width:375px){
+@media screen and (max-width:380px){
     img#playhelmet {
         width: 93px;
         top: 86px;
         left: 179px;
     }
-    #timer {
-        top: 138% !important;
-        left: 79px;
-    }
     #ball2 {
         height: 24px;
         position: absolute;
@@ -1269,21 +940,6 @@ img#helmet2 {
         position: absolute;
         bottom: 79px;
     }
-    #nextball {
-        bottom: 15%;
-        right: 6%;
-        padding: 13px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        left: 250px;
-        top: 516px;
-    }
-     #timer {
-        top: 138% !important;
-        left: 66px;
-    }
     img#bat {
         right: 249px;
         top: -32px;
@@ -1294,38 +950,18 @@ img#helmet2 {
         left: 3px;
         width: 29px;
     }
+    #timer{
+        font-size:25px;
+        margin: 16px 7px;
+    }
 }
 
 
 @media screen and (max-width:360px){
-   
-    #timer {
-        top: 149% !important;
-    left: 96px;
-    }
     #car {
         width: 179px;
         right: 3px;
         display: none;
-    }
-    #fifty {
-        left: 19%;
-        bottom: 161px;
-        display: block;
-        padding: 13px;
-        font-size: 19px;
-        border-radius: 39%;
-    }
-    #nextball {
-        bottom: 25%;
-        right: 12%;
-        padding: 13px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        left: 203px;
-        top: 429px;
     }
     #answer-box {
         width: 317px;
@@ -1373,27 +1009,6 @@ img#helmet2 {
     #helmet2{
         display: none;
     }
-    #timer {
-        top: 129% !important;
-    left: 112px;
-
-
-    }
-    #fifty {
-    
-        left: 20%;
-    bottom: 22%;
-    position: absolute;
-    color: rgb(236, 234, 234);
-    background-color: rgba(0, 0, 0, 0.58);
-    display: block;
-    padding: 8px;
-    font-size: 17px;
-    border: 2px solid grey;
-    cursor: pointer;
-    border-radius: 39%;
-        
-    }
     .middlelogo{
         top:9%;
         width:230px;
@@ -1405,24 +1020,6 @@ img#helmet2 {
         width: 179px;
         right: 3px;
         display: none;
-    }
-    #timer {
-        top: 119% !important;
-        left: 66px;
-    }
-    #nextball {
-        bottom: 22%;
-        right: 16%;
-        position: absolute;
-        color: rgb(236, 234, 234);
-        background-color: rgba(0, 0, 0, 0.58);
-        padding: 9px;
-        font-size: 18px;
-        border: 2px solid grey;
-        cursor: pointer;
-        border-radius: 39%;
-        left: 170px;
-        top: 402px;
     }
     .sandipbg1:before, .sandipbg2:before, .sandipbg3:before {
         margin-left: 11%;
