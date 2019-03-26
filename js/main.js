@@ -1,5 +1,7 @@
 $(document).ready(function () {
   var userId, first_name, last_name;
+  completed = 0;
+  completed = sessionStorage.getItem("completeId");
   $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
@@ -12,13 +14,25 @@ $(document).ready(function () {
     messagingSenderId: "1076655506884"
   };
   firebase.initializeApp(firebaseConfig);
-
+  if(completed){
+    console.log(completed);
+    $('#playEnter')
+      .removeClass('buttonPlay')
+      .addClass('mainButton')
+      .css({
+        "width":"300px",
+        "font-weight":"700",
+        "font-family":"fusion",
+        "font-size":"40px",
+        })
+      .text("PLAY AGAIN")
+  }
   $('#playEnter').on('click', function (event) {
     $('#bat').addClass('bathit');
     $('#ball').addClass('ballhit');
     setTimeout(() => {
       // event.preventDefault();
-      $('#playscreen').remove();
+      $('#playscreen').hide();
       decre(count);
       // var count = 2;
       // var interval = setInterval(function(){
@@ -114,6 +128,7 @@ $(document).ready(function () {
 
   //start
   startQuestions();
+
 
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
@@ -227,29 +242,49 @@ $(document).ready(function () {
   }
 
   function quizComplete() {
+
     $('#answer-box').fadeOut(800);
-    $('#nextball').fadeOut(800, function () {
+    $('#nextball').fadeOut(800)          
+  
       $('#timer').remove();
       $('#nextball').remove();
-      $('#quiz-canvas').remove();
       if (score == 6) {
-        $('#root').append(`<div id="lastone" class="sandipbg1">
-                            <p id="tokennum">
-                              Your token is token-${userId}
-                            </p>
-                           </div>`);
+        // $('#root').append();
         writeUserData(userId, first_name, last_name); //writing to firebase
         // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
       } else {
-        $('#root').append(`<div id="lastone" class="sandipbg2">
-                           </div>`);
+        // $('#root').append();
       }
-      $('.sandipbg2').click(()=>{
-        location.reload();
-      });
-      $('.sandipbg1').click(()=>{
-        location.reload();
-      });
+      completeFlag = 1;
+      sessionStorage.setItem("completeId", completeFlag);
+      location.reload();
+
+        
+    //   playoncemore = `<div id="playscreen">
+    //   <img class="topleftlogo" src="images/tata.png" alt="">
+    //   <img class="toprightlogo" src="images/tata150.png" alt="">
+    //   <img class="middlelogo" src="images/vs.png" alt="">
+    //   <div id="foot">
+    //     <img id="sipradi" src="images/sipradi.png" alt="">
+    //   </div>
+
+    //   <div id="playEnter" class="playPos buttonNext buttonPlay">
+    //     <img id="playhelmet" src="images/helmet.png" alt="a cricket  helmet">
+    //     <div id="batball">
+    //       <img id='bat' src='images/bat.png'>
+    //       <img id='ball' src='images/ball.png'>
+    //     </div>
+    //   </div>
+    // </div>`
+
+    //   $('#root').append(playoncemore);
+      if (score == 6) {
+        $('#root').append();
+        writeUserData(userId, first_name, last_name); //writing to firebase
+        // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
+      } else {
+        $('#root').append();
+      }
       $('#playAgain').text(`Try Again`);
       $('#playAgain').click(function () {
         location.reload();
@@ -260,7 +295,6 @@ $(document).ready(function () {
 
       $('#balls').hide();
       $('#score').hide();
-    });
   }
 
 });

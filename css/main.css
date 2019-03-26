@@ -2,14 +2,11 @@
     font-family: congFont;
     src: url("../font/Nilland-Black.ttf");
   }
-  @font-face {
-    font-family: congFont;
-    src: url("../font/Nilland-Black.ttf");
-  }
-  @font-face {
-    font-family: congFont;
-    src: url("../font/Nilland-Black.ttf");
-  }
+@font-face {
+    font-family: fusion;
+    src: url("../font/fusion.ttf");
+}
+
 html, body{
     height: 100vh;
     width: 100vw;
