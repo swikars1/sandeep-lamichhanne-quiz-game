@@ -1,7 +1,9 @@
 $(document).ready(function () {
   var userId, first_name, last_name;
   completed = 0;
+  writtenflag = 0;
   completed = sessionStorage.getItem("completeId");
+  writtenflag = sessionStorage.getItem("completeId");
   $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
@@ -24,8 +26,9 @@ $(document).ready(function () {
         "font-weight":"700",
         "font-family":"fusion",
         "font-size":"40px",
-        })
-      .text("PLAY AGAIN")
+        "padding-top":"20px",
+        "color":"#223566"
+        }).contents()[0].nodeValue = "PLAY AGAIN";
   }
   $('#playEnter').on('click', function (event) {
     $('#bat').addClass('bathit');
@@ -249,11 +252,13 @@ $(document).ready(function () {
       $('#timer').remove();
       $('#nextball').remove();
       if (score == 6) {
-        // $('#root').append();
         writeUserData(userId, first_name, last_name); //writing to firebase
         // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
-      } else {
-        // $('#root').append();
+        writtenflag = 1;
+      sessionStorage.setItem("writtenId", writtenFlag);
+
+      }else{
+        writtenflag = 0;
       }
       completeFlag = 1;
       sessionStorage.setItem("completeId", completeFlag);
