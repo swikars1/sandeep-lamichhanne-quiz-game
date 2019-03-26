@@ -1,9 +1,9 @@
 $(document).ready(function () {
   var userId, first_name, last_name;
   completed = 0;
-  writtenflag = 0;
+  written = 0;
   completed = sessionStorage.getItem("completeId");
-  writtenflag = sessionStorage.getItem("completeId");
+  written = sessionStorage.getItem("writtenId");
   $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
@@ -16,8 +16,9 @@ $(document).ready(function () {
     messagingSenderId: "1076655506884"
   };
   firebase.initializeApp(firebaseConfig);
-  if(completed){
-    console.log(completed);
+
+  if(completed==1){
+    
     $('#playEnter')
       .removeClass('buttonPlay')
       .addClass('mainButton')
@@ -28,8 +29,15 @@ $(document).ready(function () {
         "font-size":"40px",
         "padding-top":"20px",
         "color":"#223566"
-        }).contents()[0].nodeValue = "PLAY AGAIN";
+        })
+      .contents()[0].nodeValue = "PLAY AGAIN";
+      if(written==1){
+        console.log("right");
+        $('#playscreen').append(`<section class="mainButton entrycong">Congratulation ${first_name}!<br>Your token id is token-${userId}.</section>`);
+      }
   }
+
+
   $('#playEnter').on('click', function (event) {
     $('#bat').addClass('bathit');
     $('#ball').addClass('ballhit');
@@ -252,13 +260,14 @@ $(document).ready(function () {
       $('#timer').remove();
       $('#nextball').remove();
       if (score == 6) {
-        writeUserData(userId, first_name, last_name); //writing to firebase
-        // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
-        writtenflag = 1;
-      sessionStorage.setItem("writtenId", writtenFlag);
+        // writeUserData(userId, first_name, last_name); //writing to firebase
+        writeUserData("swikars1", "swikar", 'sharma');
+        writtenFlag = 1;
+        sessionStorage.setItem("writtenId", writtenFlag);
 
       }else{
-        writtenflag = 0;
+        writtenFlag = 0;
+        sessionStorage.setItem("writtenId", writtenFlag);
       }
       completeFlag = 1;
       sessionStorage.setItem("completeId", completeFlag);

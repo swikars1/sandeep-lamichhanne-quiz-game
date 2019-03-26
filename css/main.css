@@ -110,6 +110,7 @@ ul, ol{
 .slideleft{
     animation: slideleft 300ms linear forwards;
 }
+
 .options{
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -528,6 +529,17 @@ img#helmet2 {
     position: absolute;
     bottom: 80px;
     left: 233px;
+}
+.entrycong{
+    position: absolute;
+    transform:translate(-50%,-50%);
+    left:50%;
+    top:85%;
+    padding:6px;
+    font-size:22px;
+    width:350px;
+    text-align: center;
+    
 }
 @keyframes slideleft{
     100%{
