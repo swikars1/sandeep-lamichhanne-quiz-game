@@ -142,7 +142,9 @@ $(document).ready(function () {
 
 
   function startQuestions() {
-    getFromJson(requestURL, questionCounter);
+    $("#playEnter").click(() => {
+      getFromJson(requestURL, questionCounter);
+    });
     $("#nextball").click(() => {
       count = 20;
       clearInterval(interval);
@@ -165,11 +167,27 @@ $(document).ready(function () {
 
   function getFromJson(requestURL, questionPos) {
     $.getJSON(requestURL, function (questionData) {
+      console.log(questionData);
+      
       $("#nextball").hide();
       setQuestionOptions(questionData, questionPos);
 
     });
   }
+  /**
+ * Shuffles array in place.
+
+ */
+function shuffle(a) {
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+  }
+  return a;
+}
 
   function setQuestionOptions(questionData, questionPos) {
     $('#answer-box').attr('data-content', `Round: ${questionCounter + 1}`);
