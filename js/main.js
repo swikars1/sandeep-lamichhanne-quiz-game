@@ -327,7 +327,9 @@ function shuffle(a) {
       }
       completeFlag = 1;
       sessionStorage.setItem("completeId", completeFlag);
-      setTimeout(()=>location.reload(),3000);
+      $('#quiz-canvas').append(`<p id="wait">please wait</p>`);
+
+      setTimeout(()=>location.reload(),2000);
 
       $('#balls').hide();
       $('#score').hide();
