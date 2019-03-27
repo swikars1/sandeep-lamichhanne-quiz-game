@@ -156,7 +156,7 @@ $(document).ready(function () {
           "pointer-events": "unset"
         });
       $("#nextball").hide();
-      if (questionCounter < 5) {
+      if (questionCounter < newdata.length - 1) {
         questionCounter++;
         getDataOnly(questionCounter);
         // getFromJson(requestURL, questionCounter);
