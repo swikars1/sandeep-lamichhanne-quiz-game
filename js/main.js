@@ -1,5 +1,67 @@
 $(document).ready(function () {
-  var userId, first_name, last_name;
+  var userId, user_id, first_name, last_name;
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: "1287781974708240",
+      xfbml: true,
+      version: "v2.5"
+    });
+    FB.getLoginStatus(function (response) {
+      if (response.status === "connected") {
+        // document.getElementById("status").innerHTML = "We are connected.";
+        $("#login").hide();
+      } else if (response.status === "not_authorized") {
+        // document.getElementById("status").innerHTML = "We are not logged in.";
+      } else {
+        $("#login").show();
+      }
+    });
+  };
+  (function (d, s, id) {
+    var js,
+      fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  })(document, "script", "facebook-jssdk");
+  
+  
+  // login with facebook with extra permissions
+  $("#playEnter").on("click", function login() {
+    FB.login(
+      function (response) {
+        if (response.status === "connected") {
+          // document.getElementById("status").innerHTML = "We are connected.";
+        $("#login").hide();
+        } else if (response.status === "not_authorized") {
+          // document.getElementById("status").innerHTML = "We are not logged in.";
+        } else {
+          // document.getElementById("status").innerHTML =
+            // "You are not logged into Facebook.";
+        }
+      }, {
+        scope: "email"
+      }
+    );
+  });
+  
+  $("#playEnter").on("click", function getInfo() {
+    FB.api("/me", "GET", {
+      fields: "first_name,last_name,name,id"
+    }, function (
+      response
+    ) {
+        user_id = response.id;
+        first_name = response.first_name;
+        last_name = response.last_name;
+      });
+      
+  });
+
   completed = 0;
   written = 0;
   completed = sessionStorage.getItem("completeId");
@@ -162,18 +224,15 @@ $(document).ready(function () {
         // getFromJson(requestURL, questionCounter);
         balls--;
       } else {
-        quizComplete();
+        quizComplete(user_id, first_name, last_name);
       }
     });
   }
 
   function getFromJson(requestURL, questionPos) {
     $.getJSON(requestURL, function (questionData) {
-      console.log(questionData);
       newdata = questionData.questions;
-      console.log(shuffle(newdata));
-      
-      
+      shuffle(newdata);
       $("#nextball").hide();
       // setQuestionOptions(questionData, questionPos);
 
@@ -286,18 +345,19 @@ function shuffle(a) {
     $("#balls").text(`Balls Remaining: ${balls}`);
   }
 
-  function quizComplete() {
+  function quizComplete(user_id, first_name, last_name) {
 
     $('#answer-box').fadeOut(800);
     $('#nextball').fadeOut(800)          
   
       $('#timer').remove();
       $('#nextball').remove();
+      console.log(user_id);
       if (score == newdata.length) {
-        writeUserData(userId, first_name, last_name);
-        // writeUserData("swikars1", "swikar", 'sharma');
         writtenFlag = 1;
         sessionStorage.setItem("writtenId", writtenFlag);
+        writeUserData(user_id, first_name, last_name);
+        // writeUserData("swikars1", "swikar", 'sharma');
 
       }else{
         writtenFlag = 0;
@@ -346,83 +406,6 @@ function shuffle(a) {
 // slide player
 // next button system
 
-// initialize and setup facebook js sdk
-window.fbAsyncInit = function () {
-  FB.init({
-    appId: "1287781974708240",
-    xfbml: true,
-    version: "v2.5"
-  });
-  FB.getLoginStatus(function (response) {
-    if (response.status === "connected") {
-      // document.getElementById("status").innerHTML = "We are connected.";
-      document.getElementById("login").style.visibility = "hidden";
-    } else if (response.status === "not_authorized") {
-      // document.getElementById("status").innerHTML = "We are not logged in.";
-    } else {
-      // document.getElementById("status").innerHTML =
-      // "You are not logged into Facebook.";
-    }
-  });
-};
-(function (d, s, id) {
-  var js,
-    fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {
-    return;
-  }
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-})(document, "script", "facebook-jssdk");
-
-
-// login with facebook with extra permissions
-$("#playEnter").on("click", function login() {
-  FB.login(
-    function (response) {
-      if (response.status === "connected") {
-        // document.getElementById("status").innerHTML = "We are connected.";
-        document.getElementById("login").style.visibility = "hidden";
-      } else if (response.status === "not_authorized") {
-        // document.getElementById("status").innerHTML = "We are not logged in.";
-      } else {
-        // document.getElementById("status").innerHTML =
-          // "You are not logged into Facebook.";
-      }
-    }, {
-      scope: "email, user_friends"
-    }
-  );
-});
-
-$("#playEnter").on("click", function getInfo() {
-  FB.api("/me", "GET", {
-    fields: "first_name,last_name,name,id"
-  }, function (
-    response
-  ) {
-      userId = response.id;
-      first_name = response.first_name;
-      last_name = response.last_name;
-    });
-    console.log(userId);
-});
-
-
-// FB.api('/me/invitable_friends', function(response) {
-//   var result_holder = document.getElementById('result_friends');
-//   var friend_data = response.data.sort(sortMethod);
-
-//   var results = '';
-//   for (var i = 0; i < friend_data.length; i++) {
-//       results += '<div><img src="https://graph.facebook.com/' + friend_data[i].id + '/picture">' + friend_data[i].name + '</div>';
-//   }
-
-//   // and display them at our holder element
-//   result_holder.innerHTML = '<h2>Result list of your friends:</h2>' + results;
-// });
 
 $("#button").click(function () {
   $(".hidden").hide();
