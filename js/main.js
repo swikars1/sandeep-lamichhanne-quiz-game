@@ -49,19 +49,6 @@ $(document).ready(function () {
     );
   });
   
-  $("#playEnter").on("click", function getInfo() {
-    FB.api("/me", "GET", {
-      fields: "first_name,last_name,name,id"
-    }, function (
-      response
-    ) {
-        user_id = response.id;
-        first_name = response.first_name;
-        last_name = response.last_name;
-      });
-      
-  });
-
   completed = 0;
   written = 0;
   completed = sessionStorage.getItem("completeId");
@@ -95,7 +82,7 @@ $(document).ready(function () {
       .contents()[0].nodeValue = "PLAY AGAIN";
       if(written==1){
         console.log("right");
-        $('#playscreen').append(`<section class="mainButton entrycong">Congratulation ${first_name}!<br>Your token id is token-${userId}.</section>`);
+        $('#playscreen').append(`<section class="mainButton entrycong">Congratulation ${sessionStorage.getItem("thefirst_name")}!<br>Your token id is ${sessionStorage.getItem("theid")}.</section>`);
       }
   }
 
@@ -107,29 +94,20 @@ $(document).ready(function () {
       // event.preventDefault();
       $('#playscreen').hide();
       decre(count);
-      // var count = 2;
-      // var interval = setInterval(function(){
-      //   document.getElementById('playEnter').innerHTML=count;
-      //   count--;
-      //   if (count === 0){
-      //     clearInterval(interval);
-      //     document.getElementById('playEnter').innerHTML='Done';
-      //     // or...
-      //     alert("You're out of time!");
-      //   }
-      // }, 1000);
     }, 2000);
   });
 
 
   function writeUserData(userId, first_name, last_name) {
+    console.log('wrting', userId);
+    
     firebase
       .database()
       .ref("winners/" + userId)
       .set({
         first_name: first_name,
         last_name: last_name,
-        tokenId: "token-" + userId
+        tokenId: userId
       },
         function (error) {
           if (error) {
@@ -172,33 +150,6 @@ $(document).ready(function () {
     }, 1000);
   }
 
-
-  /*function countdown() {a
-      // starts countdown
-      // countdown = function(){};
-      cddisplay();
-      if (count == 0) {
-          // time is up
-      } else {
-          count--;
-          t = setTimeout(countdown(),  1000);
-      }
-  };*/
-
-
-  /*function cdpause() {
-      // pauses countdown
-      clearTimeout(t);
-  };*/
-
-  /*function cdreset() {
-      // resets countdown
-      cdpause();
-      count = CCOUNT;
-      cddisplay();
-  };*/
-
-
   //start
   startQuestions();
 
@@ -224,7 +175,7 @@ $(document).ready(function () {
         // getFromJson(requestURL, questionCounter);
         balls--;
       } else {
-        quizComplete(user_id, first_name, last_name);
+        quizComplete();
       }
     });
   }
@@ -345,7 +296,7 @@ function shuffle(a) {
     $("#balls").text(`Balls Remaining: ${balls}`);
   }
 
-  function quizComplete(user_id, first_name, last_name) {
+  function quizComplete() {
 
     $('#answer-box').fadeOut(800);
     $('#nextball').fadeOut(800)          
@@ -356,7 +307,18 @@ function shuffle(a) {
       if (score == newdata.length) {
         writtenFlag = 1;
         sessionStorage.setItem("writtenId", writtenFlag);
-        writeUserData(user_id, first_name, last_name);
+        FB.api("/me", "GET", {
+          fields: "first_name,last_name,name,id"
+        }, function (
+          response
+        ) {
+          writeUserData(response.id, response.first_name, response.last_name);
+          console.log(response);
+          sessionStorage.setItem("theid", response.id);
+          sessionStorage.setItem("thefirst_name", response.first_name);
+          sessionStorage.setItem("thelast_name", response.last_name);
+          
+          });
         // writeUserData("swikars1", "swikar", 'sharma');
 
       }else{
@@ -365,48 +327,10 @@ function shuffle(a) {
       }
       completeFlag = 1;
       sessionStorage.setItem("completeId", completeFlag);
-      location.reload();
-
-        
-    //   playoncemore = `<div id="playscreen">
-    //   <img class="topleftlogo" src="images/tata.png" alt="">
-    //   <img class="toprightlogo" src="images/tata150.png" alt="">
-    //   <img class="middlelogo" src="images/vs.png" alt="">
-    //   <div id="foot">
-    //     <img id="sipradi" src="images/sipradi.png" alt="">
-    //   </div>
-
-    //   <div id="playEnter" class="playPos buttonNext buttonPlay">
-    //     <img id="playhelmet" src="images/helmet.png" alt="a cricket  helmet">
-    //     <div id="batball">
-    //       <img id='bat' src='images/bat.png'>
-    //       <img id='ball' src='images/ball.png'>
-    //     </div>
-    //   </div>
-    // </div>`
-
-    //   $('#root').append(playoncemore);
-      $('#playAgain').click(function () {
-        location.reload();
-        console.log("restarted");
-
-      });
-      console.log(score);
+      setTimeout(()=>location.reload(),3000);
 
       $('#balls').hide();
       $('#score').hide();
   }
 
-});
-
-//TODO:
-// model to load question
-// model to load options
-// answer checker
-// slide player
-// next button system
-
-
-$("#button").click(function () {
-  $(".hidden").hide();
 });
