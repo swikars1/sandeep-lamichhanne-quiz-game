@@ -180,7 +180,9 @@ $(document).ready(function () {
     });
   }
   function getDataOnly(questionPos) {
-    
+    $('#bat2').removeClass('rotate3');
+    $('#ball2').removeClass('playball');
+
     $("#nextball").hide();
     setQuestionOptions(newdata, questionPos);
   }
@@ -223,11 +225,15 @@ function shuffle(a) {
       .off("click")
       .on("click", function () {
         // cdpause();
-        $("#nextball").show();
-        $('#fifty').hide();
-
-        clearInterval(interval)
-        checkAnswer(answer, $(this)[0].id);
+        $('#bat2').addClass('rotate3');
+        $('#ball2').addClass('playball');
+        answerint = setTimeout(()=>{
+          $("#nextball").show();
+          $('#fifty').hide();
+          
+          clearInterval(interval)
+          checkAnswer(answer, $(this)[0].id);
+        },1000);
       });
 
     $('#fifty').off("click")

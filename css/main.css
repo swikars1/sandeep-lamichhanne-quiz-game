@@ -570,9 +570,14 @@ img#helmet2 {
         transform: scale(.5)translate(1874%, -994%);
     }
 }
+@keyframes playball{
+    100%{
+        transform: scale(.5)translate(1150%,-1150%);
+    }
+}
 
 .mainButton{
-    background-image:    url('../images/main.png');
+    background-image: url('../images/main.png');
     background-size: 100% 100%;                     
     background-repeat:   no-repeat;
     background-position: center center;
@@ -584,6 +589,26 @@ img#helmet2 {
     bottom: 20px;
     z-index: 4;
     position: absolute;
+}
+.rotate3{
+    animation: rotate3 600ms linear forwards;
+}
+.playball{
+    animation: playball 1s 600ms linear forwards;
+}
+
+@keyframes rotate3{
+    40%{
+        filter:blur(3px);
+    }
+    70%{
+        filter:blur(2px);
+    }
+    100%{
+        transform: scaleX(1)rotate(-57deg);
+        filter:blur(0);
+        bottom:63px;
+    }
 }
 
 @media screen and (max-width:990px){
@@ -991,7 +1016,7 @@ img#helmet2 {
         right: 0px;
     }
     #ball2 {
-        top: 514px;
+        bottom: 95px;
         height: 23px;
         width: 24px;
         left: 73px;
