@@ -232,8 +232,8 @@ function shuffle(a) {
           $('#fifty').hide();
           
           clearInterval(interval)
-          checkAnswer(answer, $(this)[0].id);
         },1000);
+        checkAnswer(answer, $(this)[0].id);
       });
 
     $('#fifty').off("click")
