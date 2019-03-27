@@ -326,14 +326,6 @@ function shuffle(a) {
     // </div>`
 
     //   $('#root').append(playoncemore);
-      if (score == 6) {
-        $('#root').append();
-        writeUserData(userId, first_name, last_name); //writing to firebase
-        // writeUserData("swikars1", "swikar", 'sharma'); //writing to firebase
-      } else {
-        $('#root').append();
-      }
-      $('#playAgain').text(`Try Again`);
       $('#playAgain').click(function () {
         location.reload();
         console.log("restarted");
@@ -387,7 +379,7 @@ window.fbAsyncInit = function () {
 
 
 // login with facebook with extra permissions
-$("#button").on("click", function login() {
+$("#playEnter").on("click", function login() {
   FB.login(
     function (response) {
       if (response.status === "connected") {
@@ -405,7 +397,7 @@ $("#button").on("click", function login() {
   );
 });
 
-$("#button").on("click", function getInfo() {
+$("#playEnter").on("click", function getInfo() {
   FB.api("/me", "GET", {
     fields: "first_name,last_name,name,id"
   }, function (
@@ -415,6 +407,7 @@ $("#button").on("click", function getInfo() {
       first_name = response.first_name;
       last_name = response.last_name;
     });
+    console.log(userId);
 });
 
 
