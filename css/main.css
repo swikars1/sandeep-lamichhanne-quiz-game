@@ -532,14 +532,21 @@ img#helmet2 {
 }
 .entrycong{
     position: absolute;
-    transform:translate(-50%,-50%);
-    left:50%;
-    top:85%;
-    padding:6px;
-    font-size:22px;
-    width:350px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 40%;
+    padding: 6px;
+    opacity: 0.5;
+    color: #03050c;
+    font-weight: 900;
+    font-size: 30px;
+    width: 120vw;
     text-align: center;
-    z-index:25;
+    z-index: 25;
+    user-select:none;
+    font-family:'fusion';
+    /* letter-spacing: 1px; */
+    filter: saturate(117%)brightness(120%);
 }
 @keyframes slideleft{
     100%{
