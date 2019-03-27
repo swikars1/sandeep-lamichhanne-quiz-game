@@ -142,8 +142,9 @@ $(document).ready(function () {
 
 
   function startQuestions() {
+    getFromJson(requestURL, questionCounter);
     $("#playEnter").click(() => {
-      getFromJson(requestURL, questionCounter);
+      getDataOnly(questionCounter);
     });
     $("#nextball").click(() => {
       count = 20;
@@ -157,7 +158,8 @@ $(document).ready(function () {
       $("#nextball").hide();
       if (questionCounter < 5) {
         questionCounter++;
-        getFromJson(requestURL, questionCounter);
+        getDataOnly(questionCounter);
+        // getFromJson(requestURL, questionCounter);
         balls--;
       } else {
         quizComplete();
@@ -168,11 +170,19 @@ $(document).ready(function () {
   function getFromJson(requestURL, questionPos) {
     $.getJSON(requestURL, function (questionData) {
       console.log(questionData);
+      newdata = questionData.questions;
+      console.log(shuffle(newdata));
+      
       
       $("#nextball").hide();
-      setQuestionOptions(questionData, questionPos);
+      // setQuestionOptions(questionData, questionPos);
 
     });
+  }
+  function getDataOnly(questionPos) {
+    
+    $("#nextball").hide();
+    setQuestionOptions(newdata, questionPos);
   }
   /**
  * Shuffles array in place.
@@ -203,12 +213,12 @@ function shuffle(a) {
       "pointer-events": "unset",
       "opacity": "1"
     });
-    $("#question").text(questionData.questions[questionPos].question);
-    $("#opt1").text(questionData.questions[questionPos].option1);
-    $("#opt2").text(questionData.questions[questionPos].option2);
-    $("#opt3").text(questionData.questions[questionPos].option3);
-    $("#opt4").text(questionData.questions[questionPos].option4);
-    answer = questionData.questions[questionPos].answer;
+    $("#question").text(questionData[questionPos].question);
+    $("#opt1").text(questionData[questionPos].option1);
+    $("#opt2").text(questionData[questionPos].option2);
+    $("#opt3").text(questionData[questionPos].option3);
+    $("#opt4").text(questionData[questionPos].option4);
+    answer = questionData[questionPos].answer;
     $(".options > li")
       .off("click")
       .on("click", function () {
