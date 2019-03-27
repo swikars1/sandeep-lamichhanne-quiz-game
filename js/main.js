@@ -293,7 +293,7 @@ function shuffle(a) {
   
       $('#timer').remove();
       $('#nextball').remove();
-      if (score == 6) {
+      if (score == newdata.length) {
         writeUserData(userId, first_name, last_name);
         // writeUserData("swikars1", "swikar", 'sharma');
         writtenFlag = 1;
