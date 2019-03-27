@@ -294,8 +294,8 @@ function shuffle(a) {
       $('#timer').remove();
       $('#nextball').remove();
       if (score == 6) {
-        // writeUserData(userId, first_name, last_name); //writing to firebase
-        writeUserData("swikars1", "swikar", 'sharma');
+        writeUserData(userId, first_name, last_name);
+        // writeUserData("swikars1", "swikar", 'sharma');
         writtenFlag = 1;
         sessionStorage.setItem("writtenId", writtenFlag);
 
@@ -391,13 +391,13 @@ $("#button").on("click", function login() {
   FB.login(
     function (response) {
       if (response.status === "connected") {
-        document.getElementById("status").innerHTML = "We are connected.";
+        // document.getElementById("status").innerHTML = "We are connected.";
         document.getElementById("login").style.visibility = "hidden";
       } else if (response.status === "not_authorized") {
-        document.getElementById("status").innerHTML = "We are not logged in.";
+        // document.getElementById("status").innerHTML = "We are not logged in.";
       } else {
-        document.getElementById("status").innerHTML =
-          "You are not logged into Facebook.";
+        // document.getElementById("status").innerHTML =
+          // "You are not logged into Facebook.";
       }
     }, {
       scope: "email, user_friends"
