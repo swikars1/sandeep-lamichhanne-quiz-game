@@ -512,7 +512,6 @@ img#ball {
 }
 
 img#bat2 {
-    transform: scaleX(-1);
     width: 179px;
     position: absolute;
     bottom: 90px;
@@ -522,7 +521,10 @@ img#bat2 {
     position: absolute;
     width: 44px;
     bottom: 114px;
+    transform: scale(.8)translate(4000%,-607%);
     left: 180px;
+    z-index: 50;
+
 }
 img#helmet2 {
     width: 126px;
@@ -588,8 +590,14 @@ img#helmet2 {
     }
 }
 @keyframes playball{
+    25% {
+        transform: scale(1)translate(1050%,106%);
+    }
+    50%{
+        transform: scale(1)translate(-118%,-262%);
+    }
     100%{
-        transform: scale(.5)translate(1150%,-1150%);
+        transform: scale(.7)translate(3135%,-1862%);
     }
 }
 
@@ -608,23 +616,16 @@ img#helmet2 {
     position: absolute;
 }
 .rotate3{
-    animation: rotate3 600ms linear forwards;
+    animation: rotate3 300ms 700ms linear forwards;
 }
 .playball{
-    animation: playball 1s 600ms linear forwards;
+    animation: playball 2s linear forwards;
 }
 
 @keyframes rotate3{
-    40%{
-        filter:blur(3px);
-    }
-    70%{
-        filter:blur(2px);
-    }
     100%{
-        transform: scaleX(1)rotate(-57deg);
-        filter:blur(0);
-        bottom:63px;
+        transform: rotate(-48deg);
+        bottom: 124px;
     }
 }
 
@@ -665,7 +666,6 @@ img#helmet2 {
 
 @media screen and (max-width:768px){
         img#bat2 {
-            transform: scaleX(-1);
             width: 122px;
             position: absolute;
             bottom: 90px;
@@ -719,7 +719,6 @@ img#helmet2 {
         bottom: -6%;
     }
     img#bat2 {
-        transform: scaleX(-1);
         width: 81px;
     }
     #ball2 {
@@ -747,7 +746,6 @@ img#helmet2 {
 }
 @media screen and (max-width:694px){
         img#bat2 {
-            transform: scaleX(-1);
             width: 122px;
             position: absolute;
             bottom: 90px;
@@ -777,7 +775,6 @@ img#helmet2 {
 }
 @media screen and (max-width:618px){
         img#bat2 {
-            transform: scaleX(-1);
             width: 100px;
             position: absolute;
             bottom: 90px;
@@ -807,7 +804,6 @@ img#helmet2 {
 @media screen and (max-width:578px){
 
         img#bat2 {
-            transform: scaleX(-1);
             width: 100px;
             position: absolute;
             bottom: 90px;
@@ -966,7 +962,6 @@ img#helmet2 {
         left: 80px;
     }
     img#bat2 {
-        transform: scaleX(-1);
         width: 89px;
         position: absolute;
         bottom: 79px;
@@ -996,7 +991,6 @@ img#helmet2 {
         left: 80px;
     }
     img#bat2 {
-        transform: scaleX(-1);
         width: 89px;
         position: absolute;
         bottom: 79px;
