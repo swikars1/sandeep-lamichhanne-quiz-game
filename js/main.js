@@ -285,6 +285,9 @@ function shuffle(a) {
       setScore(score);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
+      $('#nextball').remove();
+      $('#quiz-canvas').append(`<section class="mainButton entrycong outt">Wicket Out!</section>`);
+      setTimeout(()=>location.reload(),311000);
     }
   }
 

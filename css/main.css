@@ -526,6 +526,7 @@ img#bat2 {
     z-index: 50;
 
 }
+
 img#helmet2 {
     width: 126px;
     position: absolute;
@@ -539,7 +540,7 @@ img#helmet2 {
     top: 40%;
     padding: 6px;
     opacity: 0.5;
-    color: #03050c;
+    color: #000000;
     font-weight: 900;
     font-size: 30px;
     width: 120vw;
@@ -549,6 +550,10 @@ img#helmet2 {
     font-family:'fusion';
     /* letter-spacing: 1px; */
     filter: saturate(117%)brightness(120%);
+}
+.outt{
+    transform:translate(-50%,10%)!important;
+    font-size: 40px;
 }
 #wait {
     transform: translate(-50%, -50%);
