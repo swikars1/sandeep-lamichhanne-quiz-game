@@ -51,8 +51,10 @@ $(document).ready(function () {
   
   completed = 0;
   written = 0;
+  manout = 0;
   completed = sessionStorage.getItem("completeId");
   written = sessionStorage.getItem("writtenId");
+  manout = sessionStorage.getItem("outId");
   $('#congP').hide();
   $('#playAgain').hide();
   // Initialize Firebase
@@ -66,7 +68,23 @@ $(document).ready(function () {
   };
   firebase.initializeApp(firebaseConfig);
 
-  if(completed==1){
+  if(manout==1){
+    $('#playEnter')
+    .removeClass('buttonPlay')
+    .addClass('mainButton')
+    .css({
+      "width":"300px",
+      "font-weight":"700",
+      "font-family":"fusion",
+      "font-size":"40px",
+      "padding-top":"20px",
+      "color":"#223566"
+      })
+    .contents()[0].nodeValue = "PLAY AGAIN";
+    $('#playscreen').append(`<section class="mainButton entrycong">Wicket<br>Out!</section>`);
+
+  }
+  if(completed==1 && manout!=1){
     
     $('#playEnter')
       .removeClass('buttonPlay')
@@ -183,7 +201,7 @@ $(document).ready(function () {
   function getFromJson(requestURL, questionPos) {
     $.getJSON(requestURL, function (questionData) {
       newdata = questionData.questions;
-      shuffle(newdata);
+      shuffle(newdata); //random questions
       $("#nextball").hide();
       // setQuestionOptions(questionData, questionPos);
 
@@ -283,11 +301,12 @@ function shuffle(a) {
 
       $("#" + checkId).addClass("correctOpt");
       setScore(score);
+      sessionStorage.setItem("outId", 0);
     } else {
       $("#" + checkId).addClass("incorrectOpt");
       $('#nextball').remove();
-      $('#quiz-canvas').append(`<section class="mainButton entrycong outt">Wicket Out!</section>`);
-      setTimeout(()=>location.reload(),311000);
+      sessionStorage.setItem("outId", 1);
+      setTimeout(()=>location.reload(),885);
     }
   }
 
