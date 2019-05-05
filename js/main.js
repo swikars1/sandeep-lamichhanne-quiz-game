@@ -114,9 +114,30 @@ $(document).ready(function () {
       decre(count);
     }, 2000);
   });
-
-
   function writeUserData(userId, first_name, last_name) {
+    console.log('wrting', userId);
+    
+    firebase
+      .database()
+      .ref("players/" + userId)
+      .set({
+        first_name: first_name,
+        last_name: last_name,
+        tokenId: userId
+      },
+        function (error) {
+          if (error) {
+            // The write failed...
+            console.error("write failed");
+          } else {
+            // Data saved successfully!
+            console.log("write done");
+          }
+        }
+      );
+  }
+
+  function writeWinnerData(userId, first_name, last_name) {
     console.log('wrting', userId);
     
     firebase
@@ -171,13 +192,13 @@ $(document).ready(function () {
   //start
   startQuestions();
 
-
   function startQuestions() {
     getFromJson(requestURL, questionCounter);
     $("#playEnter").click(() => {
       getDataOnly(questionCounter);
     });
     $("#nextball").click(() => {
+
       count = 20;
       clearInterval(interval);
       decre(count);
@@ -230,6 +251,14 @@ function shuffle(a) {
 }
 
   function setQuestionOptions(questionData, questionPos) {
+    FB.api("/me", "GET", {
+      fields: "first_name,last_name,name,id"
+    }, function (
+      response
+    ) {
+      writeUserData(response.id, response.first_name, response.last_name);
+      });
+      
     $('#answer-box').attr('data-content', `Round: ${questionCounter + 1}`);
     $(".options > li")
       .removeClass("correctOpt incorrectOpt")
@@ -325,7 +354,7 @@ function shuffle(a) {
   
       $('#timer').remove();
       $('#nextball').remove();
-      console.log(user_id);
+
       if (score == newdata.length) {
         writtenFlag = 1;
         sessionStorage.setItem("writtenId", writtenFlag);
@@ -334,14 +363,14 @@ function shuffle(a) {
         }, function (
           response
         ) {
-          writeUserData(response.id, response.first_name, response.last_name);
+          writeWinnerData(response.id, response.first_name, response.last_name);
           console.log(response);
           sessionStorage.setItem("theid", response.id);
           sessionStorage.setItem("thefirst_name", response.first_name);
           sessionStorage.setItem("thelast_name", response.last_name);
           
           });
-        // writeUserData("swikars1", "swikar", 'sharma');
+        // writeWinnerData("swikars1", "swikar", 'sharma');
 
       }else{
         writtenFlag = 0;
