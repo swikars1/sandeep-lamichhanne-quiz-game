@@ -1,3 +1,5 @@
+//there are no comments dont bother reading 
+// junks
 $(document).ready(function () {
   var userId, user_id, first_name, last_name;
   window.fbAsyncInit = function () {
