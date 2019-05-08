@@ -114,7 +114,8 @@ $(document).ready(function () {
       decre(count);
     }, 2000);
   });
-  function writeUserData(userId, first_name, last_name) {
+
+  function writeUserData(userId, first_name, last_name, email, picture) {
     console.log('wrting', userId);
     
     firebase
@@ -123,7 +124,9 @@ $(document).ready(function () {
       .set({
         first_name: first_name,
         last_name: last_name,
-        tokenId: userId
+        tokenId: userId,
+        email: email,
+        picture: picture,
       },
         function (error) {
           if (error) {
@@ -137,7 +140,7 @@ $(document).ready(function () {
       );
   }
 
-  function writeWinnerData(userId, first_name, last_name) {
+  function writeWinnerData(userId, first_name, last_name, email, picture) {
     console.log('wrting', userId);
     
     firebase
@@ -146,7 +149,9 @@ $(document).ready(function () {
       .set({
         first_name: first_name,
         last_name: last_name,
-        tokenId: userId
+        tokenId: userId,
+        email: email,
+        picture: picture,
       },
         function (error) {
           if (error) {
@@ -252,11 +257,11 @@ function shuffle(a) {
 
   function setQuestionOptions(questionData, questionPos) {
     FB.api("/me", "GET", {
-      fields: "first_name,last_name,name,id"
+      fields: "first_name,last_name,name,id,email,picture{url}"
     }, function (
       response
     ) {
-      writeUserData(response.id, response.first_name, response.last_name);
+      writeUserData(response.id, response.first_name, response.last_name, response.email, response.picture.data.url);
       });
       
     $('#answer-box').attr('data-content', `Round: ${questionCounter + 1}`);
@@ -359,15 +364,16 @@ function shuffle(a) {
         writtenFlag = 1;
         sessionStorage.setItem("writtenId", writtenFlag);
         FB.api("/me", "GET", {
-          fields: "first_name,last_name,name,id"
+          fields: "first_name,last_name,name,id,email,picture{url}"
         }, function (
           response
         ) {
-          writeWinnerData(response.id, response.first_name, response.last_name);
+          writeWinnerData(response.id, response.first_name, response.last_name, response.email, response.picture.data.url);
           console.log(response);
           sessionStorage.setItem("theid", response.id);
           sessionStorage.setItem("thefirst_name", response.first_name);
           sessionStorage.setItem("thelast_name", response.last_name);
+          
           
           });
         // writeWinnerData("swikars1", "swikar", 'sharma');
